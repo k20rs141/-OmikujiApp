@@ -20,10 +20,7 @@
 		5988D0C5161C97FE001B190C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D0C4161C97FE001B190C /* CoreGraphics.framework */; };
 		66BE54FB294A278600287B17 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BE54F7294A267800287B17 /* MenuViewController.swift */; };
 		66C1772D2948E83200BACD65 /* LotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C1772C2948E83200BACD65 /* LotViewController.swift */; };
-		8713A90720DE6D2600178A0D /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713A90620DE6D2600178A0D /* String+URL.swift */; };
-		872790A725088A6E006DCC62 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872790A625088A6E006DCC62 /* Date.swift */; };
 		87430CDF22AB98BE00D7A3F6 /* AVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87430CDE22AB98BE00D7A3F6 /* AVCapture.swift */; };
-		876B13B023FB938500650D99 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876B13AF23FB938500650D99 /* Data.swift */; };
 		8770BBD928681E7B0060238F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8770BBD828681E7B0060238F /* Settings.bundle */; };
 		8770BBDC28682D620060238F /* MAIN.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8770BBDB28682D620060238F /* MAIN.storyboard */; };
 		8770BBDE2868311D0060238F /* JrkklViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8770BBDD2868311D0060238F /* JrkklViewController.swift */; };
@@ -86,10 +83,7 @@
 		66BE54F7294A267800287B17 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		66C1772C2948E83200BACD65 /* LotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotViewController.swift; sourceTree = "<group>"; };
 		870B40E11DA4DCDA00B3CEEF /* JRKKL.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JRKKL.entitlements; sourceTree = "<group>"; };
-		8713A90620DE6D2600178A0D /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
-		872790A625088A6E006DCC62 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		87430CDE22AB98BE00D7A3F6 /* AVCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapture.swift; sourceTree = "<group>"; };
-		876B13AF23FB938500650D99 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		8770BBD628681E610060238F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = JRKKL/SupportingFiles/Info.plist; sourceTree = SOURCE_ROOT; };
 		8770BBD828681E7B0060238F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = JRKKL/SupportingFiles/Settings.bundle; sourceTree = SOURCE_ROOT; };
 		8770BBDB28682D620060238F /* MAIN.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MAIN.storyboard; sourceTree = "<group>"; };
@@ -187,7 +181,6 @@
 			children = (
 				8770BBD828681E7B0060238F /* Settings.bundle */,
 				8770BBD628681E610060238F /* Info.plist */,
-				87D7893925A062D50064E84C /* Fonts */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -264,19 +257,9 @@
 			children = (
 				87430CE422AD3A1900D7A3F6 /* Camera */,
 				87CA88BE20DCEE9400E50364 /* UIColor.swift */,
-				8713A90620DE6D2600178A0D /* String+URL.swift */,
 				87BF092D23B0EC7B00D662CE /* UIDevice.swift */,
-				876B13AF23FB938500650D99 /* Data.swift */,
-				872790A625088A6E006DCC62 /* Date.swift */,
 			);
 			path = "CLASS+EXTENSION";
-			sourceTree = "<group>";
-		};
-		87D7893925A062D50064E84C /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		F29B6C7128699F4800611F10 /* LOT */ = {
@@ -411,7 +394,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				872790A725088A6E006DCC62 /* Date.swift in Sources */,
 				87BF092E23B0EC7B00D662CE /* UIDevice.swift in Sources */,
 				87B6DAB524E26E78004ED957 /* JRkyushuLineViewController.swift in Sources */,
 				F2D3FBAF2869890E00A1439F /* StringUtils.swift in Sources */,
@@ -419,8 +401,6 @@
 				87CA88BF20DCEE9400E50364 /* UIColor.swift in Sources */,
 				87C0C6DD2115E126004DB439 /* ItemSelectionViewController.swift in Sources */,
 				87C0C6DB2115E126004DB439 /* PreviewView.swift in Sources */,
-				8713A90720DE6D2600178A0D /* String+URL.swift in Sources */,
-				876B13B023FB938500650D99 /* Data.swift in Sources */,
 				87D6DEBF23B893A200AD5ACF /* SceneDelegate.swift in Sources */,
 				66BE54FB294A278600287B17 /* MenuViewController.swift in Sources */,
 				F2D3FBAE2869890E00A1439F /* VisionViewController.swift in Sources */,
