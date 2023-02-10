@@ -24,8 +24,6 @@
 		87B6DAB524E26E78004ED957 /* JRkyushuLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B6DAB424E26E78004ED957 /* JRkyushuLineViewController.swift */; };
 		87BF092E23B0EC7B00D662CE /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BF092D23B0EC7B00D662CE /* UIDevice.swift */; };
 		87BF6AF4287F013100D34C91 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 87BF6AF3287F013100D34C91 /* SideMenu */; };
-		87C0C6DB2115E126004DB439 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0C6D82115E126004DB439 /* PreviewView.swift */; };
-		87C0C6DD2115E126004DB439 /* ItemSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0C6DA2115E126004DB439 /* ItemSelectionViewController.swift */; };
 		87C2EDF12880E30000992B9F /* LOT.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87C2EDF02880E30000992B9F /* LOT.storyboard */; };
 		87C2EDF32880E30E00992B9F /* SCAN.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87C2EDF22880E30E00992B9F /* SCAN.storyboard */; };
 		87CA88BF20DCEE9400E50364 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CA88BE20DCEE9400E50364 /* UIColor.swift */; };
@@ -81,8 +79,6 @@
 		87B6DAB224E25CCB004ED957 /* JRKYUSYU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JRKYUSYU.storyboard; sourceTree = "<group>"; };
 		87B6DAB424E26E78004ED957 /* JRkyushuLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JRkyushuLineViewController.swift; sourceTree = "<group>"; };
 		87BF092D23B0EC7B00D662CE /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
-		87C0C6D82115E126004DB439 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
-		87C0C6DA2115E126004DB439 /* ItemSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSelectionViewController.swift; sourceTree = "<group>"; };
 		87C2EDF02880E30000992B9F /* LOT.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LOT.storyboard; sourceTree = "<group>"; };
 		87C2EDF22880E30E00992B9F /* SCAN.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SCAN.storyboard; sourceTree = "<group>"; };
 		87CA88BE20DCEE9400E50364 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -174,8 +170,6 @@
 		87430CE422AD3A1900D7A3F6 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				87C0C6DA2115E126004DB439 /* ItemSelectionViewController.swift */,
-				87C0C6D82115E126004DB439 /* PreviewView.swift */,
 				87430CDE22AB98BE00D7A3F6 /* AVCapture.swift */,
 			);
 			path = Camera;
@@ -377,8 +371,6 @@
 				F2D3FBAF2869890E00A1439F /* StringUtils.swift in Sources */,
 				F2D3FBB02869890E00A1439F /* ScanPreviewView.swift in Sources */,
 				87CA88BF20DCEE9400E50364 /* UIColor.swift in Sources */,
-				87C0C6DD2115E126004DB439 /* ItemSelectionViewController.swift in Sources */,
-				87C0C6DB2115E126004DB439 /* PreviewView.swift in Sources */,
 				87D6DEBF23B893A200AD5ACF /* SceneDelegate.swift in Sources */,
 				66BE54FB294A278600287B17 /* MenuViewController.swift in Sources */,
 				F2D3FBAE2869890E00A1439F /* VisionViewController.swift in Sources */,
