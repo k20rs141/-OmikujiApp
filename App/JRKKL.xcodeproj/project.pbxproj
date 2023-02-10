@@ -7,17 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2315D09C1A19CCFF000914C7 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2315D09B1A19CCFF000914C7 /* QuickLook.framework */; };
-		2315D09E1A19CD10000914C7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2315D09D1A19CD10000914C7 /* QuartzCore.framework */; };
 		41E8544119E7846E0034DF19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E8544019E7846E0034DF19 /* Assets.xcassets */; };
-		4B0644F81829272200C1A890 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B0644F71829272200C1A890 /* MessageUI.framework */; };
-		4B22988A181A47A200825807 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B229888181A47A200825807 /* EventKit.framework */; };
-		4B22988B181A47A200825807 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B229889181A47A200825807 /* EventKitUI.framework */; };
 		4B70CA8217D880E200FC9F45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B70CA8117D880E200FC9F45 /* SystemConfiguration.framework */; };
 		58F5E94F1C60723400D3AE12 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F5E94E1C60723400D3AE12 /* WebKit.framework */; };
 		5988D0C1161C97FE001B190C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D0C0161C97FE001B190C /* UIKit.framework */; };
 		5988D0C3161C97FE001B190C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D0C2161C97FE001B190C /* Foundation.framework */; };
-		5988D0C5161C97FE001B190C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D0C4161C97FE001B190C /* CoreGraphics.framework */; };
+		66A9371429967F5F00C696F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D0F1161C9E54001B190C /* MapKit.framework */; };
 		66BE54FB294A278600287B17 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BE54F7294A267800287B17 /* MenuViewController.swift */; };
 		66C1772D2948E83200BACD65 /* LotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C1772C2948E83200BACD65 /* LotViewController.swift */; };
 		87430CDF22AB98BE00D7A3F6 /* AVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87430CDE22AB98BE00D7A3F6 /* AVCapture.swift */; };
@@ -66,18 +61,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2315D09B1A19CCFF000914C7 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
-		2315D09D1A19CD10000914C7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		41E8544019E7846E0034DF19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4B0644F71829272200C1A890 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		4B229888181A47A200825807 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
-		4B229889181A47A200825807 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		4B70CA8117D880E200FC9F45 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		58F5E94E1C60723400D3AE12 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		5988D0BC161C97FE001B190C /* JrKyushuKashiiLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JrKyushuKashiiLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5988D0C0161C97FE001B190C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5988D0C2161C97FE001B190C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		5988D0C4161C97FE001B190C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5988D0F1161C9E54001B190C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5988D0F3161C9E5C001B190C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		66BE54F7294A267800287B17 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -110,17 +99,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66A9371429967F5F00C696F7 /* MapKit.framework in Frameworks */,
 				58F5E94F1C60723400D3AE12 /* WebKit.framework in Frameworks */,
-				2315D09E1A19CD10000914C7 /* QuartzCore.framework in Frameworks */,
-				2315D09C1A19CCFF000914C7 /* QuickLook.framework in Frameworks */,
-				4B0644F81829272200C1A890 /* MessageUI.framework in Frameworks */,
-				4B22988A181A47A200825807 /* EventKit.framework in Frameworks */,
-				4B22988B181A47A200825807 /* EventKitUI.framework in Frameworks */,
 				4B70CA8217D880E200FC9F45 /* SystemConfiguration.framework in Frameworks */,
 				5988D0C1161C97FE001B190C /* UIKit.framework in Frameworks */,
 				5988D0C3161C97FE001B190C /* Foundation.framework in Frameworks */,
 				87BF6AF4287F013100D34C91 /* SideMenu in Frameworks */,
-				5988D0C5161C97FE001B190C /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,17 +132,11 @@
 			isa = PBXGroup;
 			children = (
 				58F5E94E1C60723400D3AE12 /* WebKit.framework */,
-				2315D09D1A19CD10000914C7 /* QuartzCore.framework */,
-				2315D09B1A19CCFF000914C7 /* QuickLook.framework */,
-				4B0644F71829272200C1A890 /* MessageUI.framework */,
-				4B229888181A47A200825807 /* EventKit.framework */,
-				4B229889181A47A200825807 /* EventKitUI.framework */,
 				5988D0F3161C9E5C001B190C /* CoreLocation.framework */,
 				5988D0F1161C9E54001B190C /* MapKit.framework */,
 				4B70CA8117D880E200FC9F45 /* SystemConfiguration.framework */,
 				5988D0C0161C97FE001B190C /* UIKit.framework */,
 				5988D0C2161C97FE001B190C /* Foundation.framework */,
-				5988D0C4161C97FE001B190C /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -496,7 +474,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = JrKyushuKashiiLine;
 				SWIFT_INCLUDE_PATHS = JRKKL/Views/Headers;
-				SWIFT_OBJC_BRIDGING_HEADER = "JRKKL/Views/Headers/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -648,7 +626,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = JrKyushuKashiiLine;
 				SWIFT_INCLUDE_PATHS = JRKKL/Views/Headers;
-				SWIFT_OBJC_BRIDGING_HEADER = "JRKKL/Views/Headers/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -685,7 +663,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = JrKyushuKashiiLine;
 				SWIFT_INCLUDE_PATHS = JRKKL/Views/Headers;
-				SWIFT_OBJC_BRIDGING_HEADER = "JRKKL/Views/Headers/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
