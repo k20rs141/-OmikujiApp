@@ -192,10 +192,10 @@
             </objects>
             <point key="canvasLocation" x="-4633" y="-2117"/>
         </scene>
-        <!--How To Use App View Controller-->
+        <!--View Controller-->
         <scene sceneID="teF-Un-8MU">
             <objects>
-                <viewController storyboardIdentifier="HowToUseAppViewController" id="rAw-7Q-upy" customClass="HowToUseAppViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HowToUseAppViewController" id="rAw-7Q-upy" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0b0-2G-yCB"/>
                         <viewControllerLayoutGuide type="bottom" id="qOT-ao-OPa"/>
@@ -322,6 +322,6 @@
         <image name="topOmikuji" width="1013" height="1670"/>
         <image name="topTitle" width="905" height="330"/>
         <image name="topTopBackground" width="1127" height="1241"/>
-        <image name="whiteLayerTitle" width="1125" height="423"/>
+        <image name="whiteLayerTitle" width="1126" height="431"/>
     </resources>
 </document>
