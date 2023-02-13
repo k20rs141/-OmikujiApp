@@ -278,7 +278,10 @@
                                 <rect key="frame" x="-290" y="176" width="994" height="486"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteLayerTitle" translatesAutoresizingMaskIntoConstraints="NO" id="j7a-LL-Brf" userLabel="Title Image View">
-                                <rect key="frame" x="0.0" y="5" width="414" height="134"/>
+                                <rect key="frame" x="0.0" y="5" width="414" height="156"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="j7a-LL-Brf" secondAttribute="height" multiplier="1127:425" id="JXM-mj-rbC"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aiQ-cR-QRy"/>
@@ -295,7 +298,6 @@
                             <constraint firstItem="A6a-2z-yGB" firstAttribute="centerY" secondItem="a9o-le-0ut" secondAttribute="centerY" id="PBb-Si-7uc"/>
                             <constraint firstItem="IQJ-2y-drb" firstAttribute="bottom" secondItem="a9o-le-0ut" secondAttribute="bottom" id="RF4-HO-N5v"/>
                             <constraint firstItem="jd3-fh-0EA" firstAttribute="leading" secondItem="aiQ-cR-QRy" secondAttribute="leading" id="TEb-FP-VCO"/>
-                            <constraint firstItem="j7a-LL-Brf" firstAttribute="height" secondItem="a9o-le-0ut" secondAttribute="height" multiplier="0.16" id="W9R-c6-iQZ"/>
                             <constraint firstItem="jd3-fh-0EA" firstAttribute="bottom" secondItem="a9o-le-0ut" secondAttribute="bottom" id="W9z-GR-G7C"/>
                             <constraint firstItem="j7a-LL-Brf" firstAttribute="width" secondItem="a9o-le-0ut" secondAttribute="width" id="XWg-yV-eyb"/>
                             <constraint firstItem="A6a-2z-yGB" firstAttribute="centerX" secondItem="aiQ-cR-QRy" secondAttribute="centerX" id="iKi-1d-xKX"/>
@@ -320,8 +322,8 @@
         <image name="tabBarBackground" width="1127" height="310"/>
         <image name="topNoticeButton" width="238" height="228"/>
         <image name="topOmikuji" width="1013" height="1670"/>
-        <image name="topTitle" width="905" height="330"/>
+        <image name="topTitle" width="908.5" height="304.5"/>
         <image name="topTopBackground" width="1127" height="1241"/>
-        <image name="whiteLayerTitle" width="1126" height="431"/>
+        <image name="whiteLayerTitle" width="1127" height="425"/>
     </resources>
 </document>

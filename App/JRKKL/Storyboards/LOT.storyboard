@@ -24,10 +24,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shakeRight" translatesAutoresizingMaskIntoConstraints="NO" id="2nc-AK-gmz" userLabel="Shake Right Image View">
-                                <rect key="frame" x="30" y="148" width="354" height="631.5"/>
+                                <rect key="frame" x="30" y="171.5" width="354" height="608"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shakeLeft" translatesAutoresizingMaskIntoConstraints="NO" id="Fgg-BZ-lt8" userLabel="Shake Left Image View">
-                                <rect key="frame" x="30" y="148" width="354" height="631.5"/>
+                                <rect key="frame" x="30" y="171.5" width="354" height="608"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9Q-1A-qMC" userLabel="Background Bottom View">
                                 <rect key="frame" x="0.0" y="779.5" width="414" height="116.5"/>
@@ -97,7 +97,10 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteLayerTitle" translatesAutoresizingMaskIntoConstraints="NO" id="yBc-xv-rHp" userLabel="Title Image View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="148"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="171.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yBc-xv-rHp" secondAttribute="height" multiplier="1027:425" id="4vV-qk-09Y"/>
+                                </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQO-53-BZ3" userLabel="Omikuji View">
                                 <rect key="frame" x="31" y="157" width="352" height="582"/>
@@ -208,7 +211,7 @@
                         <viewLayoutGuide key="safeArea" id="Fbb-iJ-Lcj"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="yBc-xv-rHp" firstAttribute="trailing" secondItem="Fbb-iJ-Lcj" secondAttribute="trailing" id="5ob-Yi-Lnk"/>
+                            <constraint firstAttribute="trailing" secondItem="yBc-xv-rHp" secondAttribute="trailing" id="5ob-Yi-Lnk"/>
                             <constraint firstItem="2nc-AK-gmz" firstAttribute="leading" secondItem="Fbb-iJ-Lcj" secondAttribute="leading" constant="30" id="6Gx-my-N11"/>
                             <constraint firstItem="e9Q-1A-qMC" firstAttribute="bottom" secondItem="soT-wf-aaU" secondAttribute="bottom" id="9eU-8Z-XC7"/>
                             <constraint firstItem="yBc-xv-rHp" firstAttribute="top" secondItem="soT-wf-aaU" secondAttribute="top" id="DnF-6a-KFX"/>
@@ -219,8 +222,7 @@
                             <constraint firstItem="e9Q-1A-qMC" firstAttribute="trailing" secondItem="Fbb-iJ-Lcj" secondAttribute="trailing" id="JXx-gA-0AA"/>
                             <constraint firstItem="chk-5f-4Qj" firstAttribute="bottom" secondItem="soT-wf-aaU" secondAttribute="bottom" id="OhF-DP-voJ"/>
                             <constraint firstItem="hQO-53-BZ3" firstAttribute="centerX" secondItem="soT-wf-aaU" secondAttribute="centerX" id="Qjx-kw-4R6"/>
-                            <constraint firstItem="yBc-xv-rHp" firstAttribute="height" secondItem="soT-wf-aaU" secondAttribute="height" multiplier="0.165" id="bNI-I6-iVL"/>
-                            <constraint firstItem="yBc-xv-rHp" firstAttribute="leading" secondItem="Fbb-iJ-Lcj" secondAttribute="leading" id="fFR-Ls-gIs"/>
+                            <constraint firstItem="yBc-xv-rHp" firstAttribute="leading" secondItem="soT-wf-aaU" secondAttribute="leading" id="fFR-Ls-gIs"/>
                             <constraint firstItem="e9Q-1A-qMC" firstAttribute="height" secondItem="soT-wf-aaU" secondAttribute="height" multiplier="0.13" id="fkl-xd-Hzh"/>
                             <constraint firstItem="chk-5f-4Qj" firstAttribute="top" secondItem="soT-wf-aaU" secondAttribute="top" id="h8Q-um-rqM"/>
                             <constraint firstItem="xMN-VB-S1Q" firstAttribute="trailing" secondItem="Fbb-iJ-Lcj" secondAttribute="trailing" id="j1M-Fs-K08"/>
@@ -260,6 +262,6 @@
         <image name="shakeLeft" width="991" height="1436"/>
         <image name="shakeRight" width="1000" height="1425"/>
         <image name="tabBarBackground" width="1127" height="310"/>
-        <image name="whiteLayerTitle" width="1126" height="431"/>
+        <image name="whiteLayerTitle" width="1127" height="425"/>
     </resources>
 </document>

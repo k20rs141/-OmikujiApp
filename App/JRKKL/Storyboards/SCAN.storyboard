@@ -46,7 +46,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteLayerTitle" translatesAutoresizingMaskIntoConstraints="NO" id="OfK-R7-o4J" userLabel="Title Image View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="148"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="156"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OfK-R7-o4J" secondAttribute="height" multiplier="1127:425" id="pss-SQ-iOe"/>
+                                </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanTarget" translatesAutoresizingMaskIntoConstraints="NO" id="NVX-4M-f5U">
                                 <rect key="frame" x="41.5" y="154.5" width="331" height="132.5"/>
@@ -116,7 +119,6 @@
                             <constraint firstAttribute="trailing" secondItem="kRd-9p-LjZ" secondAttribute="trailing" id="KbY-J9-1K2"/>
                             <constraint firstItem="S3m-Fi-In2" firstAttribute="centerX" secondItem="1QT-E2-48E" secondAttribute="centerX" id="LMa-Ta-UOy"/>
                             <constraint firstItem="hth-Az-fx0" firstAttribute="leading" secondItem="kcQ-Gf-MKd" secondAttribute="leading" id="M0h-1A-A58"/>
-                            <constraint firstItem="OfK-R7-o4J" firstAttribute="height" secondItem="1QT-E2-48E" secondAttribute="height" multiplier="0.165" id="O2o-Yj-cye"/>
                             <constraint firstItem="kcQ-Gf-MKd" firstAttribute="trailing" secondItem="1lp-QE-tix" secondAttribute="trailing" id="Oip-3c-kdD"/>
                             <constraint firstItem="S3m-Fi-In2" firstAttribute="centerY" secondItem="NVX-4M-f5U" secondAttribute="centerY" multiplier="0.92" id="Pak-zR-mpD"/>
                             <constraint firstAttribute="trailing" secondItem="OfK-R7-o4J" secondAttribute="trailing" id="U17-Gg-0Us"/>
@@ -167,7 +169,7 @@
     <resources>
         <image name="lineBackground" width="1130" height="2440"/>
         <image name="scanTarget" width="1004" height="407"/>
-        <image name="whiteLayerTitle" width="1125" height="423"/>
+        <image name="whiteLayerTitle" width="1127" height="425"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
