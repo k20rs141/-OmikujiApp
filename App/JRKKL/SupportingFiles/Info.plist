@@ -65,10 +65,10 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>切符を認識するためにカメラを使用します</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string></string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>あなたの居場所を特定するためにバックグラウンド実行中も位置情報を記録します。</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>あなたの居場所を特定するために位置情報を使用します。</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>BIZUDGothic-Bold.ttf</string>
