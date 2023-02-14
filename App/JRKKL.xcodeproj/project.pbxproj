@@ -159,6 +159,20 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		66B8C169299BC1D7002136ED /* MAP */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MAP;
+			sourceTree = "<group>";
+		};
+		66B8C16A299BC33E002136ED /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		66BE54F6294A267800287B17 /* MENU */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +200,7 @@
 		8795C95120E923A5005AED81 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				66B8C169299BC1D7002136ED /* MAP */,
 				F29B6C7128699F4800611F10 /* LOT */,
 				F2D3FBA8286988D400A1439F /* SCAN */,
 				8770BBDA28682B530060238F /* JRKKLTOP */,
@@ -227,6 +242,7 @@
 		87CA88C020DD26EB00E50364 /* CLASS+EXTENSION */ = {
 			isa = PBXGroup;
 			children = (
+				66B8C16A299BC33E002136ED /* Map */,
 				87430CE422AD3A1900D7A3F6 /* Camera */,
 				87CA88BE20DCEE9400E50364 /* UIColor.swift */,
 				87BF092D23B0EC7B00D662CE /* UIDevice.swift */,
