@@ -13,6 +13,13 @@
 		5988D0C1161C97FE001B190C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D0C0161C97FE001B190C /* UIKit.framework */; };
 		5988D0C3161C97FE001B190C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D0C2161C97FE001B190C /* Foundation.framework */; };
 		66A9371429967F5F00C696F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D0F1161C9E54001B190C /* MapKit.framework */; };
+		66B8C176299BC3BF002136ED /* LookAroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8C16C299BC3BF002136ED /* LookAroundView.swift */; };
+		66B8C177299BC3BF002136ED /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8C16D299BC3BF002136ED /* MapView.swift */; };
+		66B8C178299BC3BF002136ED /* MapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8C16E299BC3BF002136ED /* MapViewCoordinator.swift */; };
+		66B8C17A299BC3BF002136ED /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8C170299BC3BF002136ED /* CheckInView.swift */; };
+		66B8C17C299BC3BF002136ED /* PinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8C173299BC3BF002136ED /* PinData.swift */; };
+		66B8C17D299BC3BF002136ED /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8C174299BC3BF002136ED /* LocationManager.swift */; };
+		66B8C17E299BC3BF002136ED /* MapLocationData.json in Resources */ = {isa = PBXBuildFile; fileRef = 66B8C175299BC3BF002136ED /* MapLocationData.json */; };
 		66BE54FB294A278600287B17 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BE54F7294A267800287B17 /* MenuViewController.swift */; };
 		66C1772D2948E83200BACD65 /* LotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C1772C2948E83200BACD65 /* LotViewController.swift */; };
 		87430CDF22AB98BE00D7A3F6 /* AVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87430CDE22AB98BE00D7A3F6 /* AVCapture.swift */; };
@@ -67,6 +74,13 @@
 		5988D0C2161C97FE001B190C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5988D0F1161C9E54001B190C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5988D0F3161C9E5C001B190C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		66B8C16C299BC3BF002136ED /* LookAroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookAroundView.swift; sourceTree = "<group>"; };
+		66B8C16D299BC3BF002136ED /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		66B8C16E299BC3BF002136ED /* MapViewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCoordinator.swift; sourceTree = "<group>"; };
+		66B8C170299BC3BF002136ED /* CheckInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
+		66B8C173299BC3BF002136ED /* PinData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinData.swift; sourceTree = "<group>"; };
+		66B8C174299BC3BF002136ED /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		66B8C175299BC3BF002136ED /* MapLocationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MapLocationData.json; sourceTree = "<group>"; };
 		66BE54F7294A267800287B17 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		66C1772C2948E83200BACD65 /* LotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotViewController.swift; sourceTree = "<group>"; };
 		870B40E11DA4DCDA00B3CEEF /* JRKKL.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JRKKL.entitlements; sourceTree = "<group>"; };
@@ -143,6 +157,7 @@
 				8795C95420E92446005AED81 /* Storyboards */,
 				8795C95120E923A5005AED81 /* Views */,
 				87CA88C020DD26EB00E50364 /* CLASS+EXTENSION */,
+				66B8C175299BC3BF002136ED /* MapLocationData.json */,
 				5988D0C7161C97FE001B190C /* Supporting Files */,
 				870B40E11DA4DCDA00B3CEEF /* JRKKL.entitlements */,
 				41E8544019E7846E0034DF19 /* Assets.xcassets */,
@@ -162,6 +177,10 @@
 		66B8C169299BC1D7002136ED /* MAP */ = {
 			isa = PBXGroup;
 			children = (
+				66B8C16C299BC3BF002136ED /* LookAroundView.swift */,
+				66B8C16D299BC3BF002136ED /* MapView.swift */,
+				66B8C16E299BC3BF002136ED /* MapViewCoordinator.swift */,
+				66B8C170299BC3BF002136ED /* CheckInView.swift */,
 			);
 			path = MAP;
 			sourceTree = "<group>";
@@ -169,6 +188,8 @@
 		66B8C16A299BC33E002136ED /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				66B8C173299BC3BF002136ED /* PinData.swift */,
+				66B8C174299BC3BF002136ED /* LocationManager.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -351,6 +372,7 @@
 				8794248628794FDD001F2D0B /* omikuji.json in Resources */,
 				87B6DAB324E25CCB004ED957 /* JRKYUSYU.storyboard in Resources */,
 				8770BBDC28682D620060238F /* MAIN.storyboard in Resources */,
+				66B8C17E299BC3BF002136ED /* MapLocationData.json in Resources */,
 				41E8544119E7846E0034DF19 /* Assets.xcassets in Resources */,
 				8770BBD928681E7B0060238F /* Settings.bundle in Resources */,
 			);
@@ -382,16 +404,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66B8C178299BC3BF002136ED /* MapViewCoordinator.swift in Sources */,
+				66B8C17C299BC3BF002136ED /* PinData.swift in Sources */,
 				87BF092E23B0EC7B00D662CE /* UIDevice.swift in Sources */,
 				87B6DAB524E26E78004ED957 /* JRkyushuLineViewController.swift in Sources */,
 				F2D3FBAF2869890E00A1439F /* StringUtils.swift in Sources */,
 				F2D3FBB02869890E00A1439F /* ScanPreviewView.swift in Sources */,
 				87CA88BF20DCEE9400E50364 /* UIColor.swift in Sources */,
 				87D6DEBF23B893A200AD5ACF /* SceneDelegate.swift in Sources */,
+				66B8C17A299BC3BF002136ED /* CheckInView.swift in Sources */,
 				66BE54FB294A278600287B17 /* MenuViewController.swift in Sources */,
+				66B8C177299BC3BF002136ED /* MapView.swift in Sources */,
 				F2D3FBAE2869890E00A1439F /* VisionViewController.swift in Sources */,
+				66B8C176299BC3BF002136ED /* LookAroundView.swift in Sources */,
 				8770BBDE2868311D0060238F /* JrkklViewController.swift in Sources */,
 				87430CDF22AB98BE00D7A3F6 /* AVCapture.swift in Sources */,
+				66B8C17D299BC3BF002136ED /* LocationManager.swift in Sources */,
 				87F8E2192349B9620078FA11 /* AppDelegate.swift in Sources */,
 				F2D3FBAD2869890E00A1439F /* ScanViewController.swift in Sources */,
 				66C1772D2948E83200BACD65 /* LotViewController.swift in Sources */,
