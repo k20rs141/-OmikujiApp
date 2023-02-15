@@ -14,7 +14,6 @@ class VisionViewController: ScanViewController {
     }
 
     // MARK: - Text recognition
-    
     // VNRecognizeTextRequestに文字認識した結果を渡すHandler
     func recognizeTextHandler(request: VNRequest, error: Error?) {
         var numbers = [String]()
@@ -75,7 +74,6 @@ class VisionViewController: ScanViewController {
     }
 
     // MARK: - Bounding box drawing
-
     // 画面上にボックスを描画
     var boxLayer = [CAShapeLayer]()
     func draw(rect: CGRect, color: CGColor) {
