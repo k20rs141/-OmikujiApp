@@ -17,6 +17,7 @@ struct PinData: Identifiable, Codable {
         case category
         case checked
     }
+    
     var coordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
