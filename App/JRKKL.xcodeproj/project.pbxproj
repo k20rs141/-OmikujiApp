@@ -157,7 +157,6 @@
 				8795C95420E92446005AED81 /* Storyboards */,
 				8795C95120E923A5005AED81 /* Views */,
 				87CA88C020DD26EB00E50364 /* CLASS+EXTENSION */,
-				66B8C175299BC3BF002136ED /* MapLocationData.json */,
 				5988D0C7161C97FE001B190C /* Supporting Files */,
 				870B40E11DA4DCDA00B3CEEF /* JRKKL.entitlements */,
 				41E8544019E7846E0034DF19 /* Assets.xcassets */,
@@ -177,6 +176,7 @@
 		66B8C169299BC1D7002136ED /* MAP */ = {
 			isa = PBXGroup;
 			children = (
+				66B8C175299BC3BF002136ED /* MapLocationData.json */,
 				66B8C16C299BC3BF002136ED /* LookAroundView.swift */,
 				66B8C16D299BC3BF002136ED /* MapView.swift */,
 				66B8C16E299BC3BF002136ED /* MapViewCoordinator.swift */,
