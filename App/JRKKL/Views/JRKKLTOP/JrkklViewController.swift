@@ -54,7 +54,7 @@ class JrkklViewController: UIViewController {
         print("catchSelectMenuNotification():\(itemNumber)")
 
         switch itemNumber {
-        case 2: openViewController("JRKYUSYU")
+        case 2: openApp(urlScheme: "jrqapp://", urlString: "https://apps.apple.com/jp/app/id1081742880")
         case 3: openUrl("https://www.jrkyushu.co.jp/")
         case 4: openApp(urlScheme: "jp.ac.kyusan-u.ISICKSU://", urlString: "https://apps.apple.com/jp/app/id702774515")
 //        case 4: openApp("ISICKSU://","https://apps.apple.com/jp/app/id702774515")
