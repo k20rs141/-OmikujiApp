@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="igH-mG-peb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -101,13 +100,13 @@
                                     <constraint firstAttribute="bottom" secondItem="3FW-2e-mtO" secondAttribute="bottom" multiplier="1.3" id="xyT-OH-DJk"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topOmikuji" translatesAutoresizingMaskIntoConstraints="NO" id="oEo-mU-iPb" userLabel="Omikuji  Image View">
-                                <rect key="frame" x="0.0" y="151.5" width="414" height="610"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="omikuji" translatesAutoresizingMaskIntoConstraints="NO" id="oEo-mU-iPb" userLabel="Omikuji  Image View">
+                                <rect key="frame" x="0.0" y="76" width="414" height="685.5"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Ecc-oI-MdD" userLabel="Title Image View">
-                                <rect key="frame" x="0.0" y="48" width="414" height="103.5"/>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Ecc-oI-MdD" userLabel="Title Image View">
+                                <rect key="frame" x="64" y="48" width="286" height="96"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Ecc-oI-MdD" secondAttribute="height" multiplier="4" id="0Pp-hJ-uw7"/>
+                                    <constraint firstAttribute="width" secondItem="Ecc-oI-MdD" secondAttribute="height" multiplier="909:305" id="0Pp-hJ-uw7"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzG-H8-Rem" userLabel="Start Button">
@@ -117,8 +116,8 @@
                                     <segue destination="W3c-2O-9rx" kind="showDetail" id="a4m-sO-MGj"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8J-yu-i9a" userLabel="Title View">
-                                <rect key="frame" x="0.0" y="48" width="414" height="64"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8J-yu-i9a" userLabel="Hamberger View">
+                                <rect key="frame" x="0.0" y="40" width="414" height="64"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwU-Ah-zYg" userLabel="Hamberger Button">
                                         <rect key="frame" x="0.0" y="0.0" width="96" height="64"/>
@@ -147,14 +146,13 @@
                         <viewLayoutGuide key="safeArea" id="uys-xr-M1L"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="oEo-mU-iPb" firstAttribute="top" secondItem="Ecc-oI-MdD" secondAttribute="bottom" id="2fl-fH-16H"/>
                             <constraint firstItem="Vt9-Lf-1as" firstAttribute="leading" secondItem="uys-xr-M1L" secondAttribute="leading" id="3TM-BT-20q"/>
                             <constraint firstItem="M8H-KT-6OG" firstAttribute="bottom" secondItem="8vX-Xp-6GT" secondAttribute="centerY" id="6NW-QP-eBj"/>
                             <constraint firstItem="Vt9-Lf-1as" firstAttribute="bottom" secondItem="8vX-Xp-6GT" secondAttribute="bottom" id="7RY-bP-v7c"/>
                             <constraint firstItem="baS-Y0-jnl" firstAttribute="trailing" secondItem="uys-xr-M1L" secondAttribute="trailing" id="Brr-CS-aEg"/>
                             <constraint firstItem="HzG-H8-Rem" firstAttribute="bottom" secondItem="uys-xr-M1L" secondAttribute="bottom" multiplier="0.8" id="BxH-J3-le6"/>
                             <constraint firstItem="oEo-mU-iPb" firstAttribute="trailing" secondItem="uys-xr-M1L" secondAttribute="trailing" id="CVH-np-U85"/>
-                            <constraint firstItem="Ecc-oI-MdD" firstAttribute="leading" secondItem="uys-xr-M1L" secondAttribute="leading" id="D2n-Zc-Iof"/>
+                            <constraint firstItem="Ecc-oI-MdD" firstAttribute="leading" secondItem="uys-xr-M1L" secondAttribute="leading" constant="64" id="D2n-Zc-Iof"/>
                             <constraint firstItem="HzG-H8-Rem" firstAttribute="leading" secondItem="uys-xr-M1L" secondAttribute="centerX" multiplier="0.4" id="Dxw-DT-RrP"/>
                             <constraint firstItem="M8H-KT-6OG" firstAttribute="top" secondItem="8vX-Xp-6GT" secondAttribute="top" id="LAn-Q2-gR8"/>
                             <constraint firstItem="M8H-KT-6OG" firstAttribute="leading" secondItem="8vX-Xp-6GT" secondAttribute="leading" id="P6N-0g-mOt"/>
@@ -163,14 +161,15 @@
                             <constraint firstItem="baS-Y0-jnl" firstAttribute="top" secondItem="8vX-Xp-6GT" secondAttribute="top" id="TXm-CM-TKK"/>
                             <constraint firstItem="HzG-H8-Rem" firstAttribute="top" secondItem="uys-xr-M1L" secondAttribute="top" multiplier="3.5" id="Vwd-mB-MRJ"/>
                             <constraint firstItem="Vt9-Lf-1as" firstAttribute="height" secondItem="8vX-Xp-6GT" secondAttribute="height" multiplier="0.13" id="YDJ-2Q-oIe"/>
-                            <constraint firstItem="w8J-yu-i9a" firstAttribute="top" secondItem="uys-xr-M1L" secondAttribute="top" id="ZO4-qa-Quq"/>
+                            <constraint firstItem="w8J-yu-i9a" firstAttribute="top" secondItem="uys-xr-M1L" secondAttribute="top" constant="-8" id="ZO4-qa-Quq"/>
                             <constraint firstItem="baS-Y0-jnl" firstAttribute="bottom" secondItem="8vX-Xp-6GT" secondAttribute="bottom" id="ZfK-uR-VZc"/>
                             <constraint firstItem="baS-Y0-jnl" firstAttribute="leading" secondItem="uys-xr-M1L" secondAttribute="leading" id="ZkM-Xx-aT7"/>
                             <constraint firstItem="Vt9-Lf-1as" firstAttribute="width" secondItem="8vX-Xp-6GT" secondAttribute="width" id="ajR-gd-VgS"/>
                             <constraint firstItem="M8H-KT-6OG" firstAttribute="trailing" secondItem="8vX-Xp-6GT" secondAttribute="trailing" id="c0d-6n-bvL"/>
                             <constraint firstItem="oEo-mU-iPb" firstAttribute="leading" secondItem="uys-xr-M1L" secondAttribute="leading" id="f4j-Pa-OgL"/>
-                            <constraint firstItem="Ecc-oI-MdD" firstAttribute="trailing" secondItem="uys-xr-M1L" secondAttribute="trailing" id="jTR-nq-Y4t"/>
+                            <constraint firstItem="Ecc-oI-MdD" firstAttribute="trailing" secondItem="uys-xr-M1L" secondAttribute="trailing" constant="-64" id="jTR-nq-Y4t"/>
                             <constraint firstItem="Ecc-oI-MdD" firstAttribute="top" secondItem="uys-xr-M1L" secondAttribute="top" id="jeg-JH-RgA"/>
+                            <constraint firstItem="oEo-mU-iPb" firstAttribute="top" secondItem="uys-xr-M1L" secondAttribute="top" constant="28" id="pH4-kW-AwJ"/>
                             <constraint firstItem="HzG-H8-Rem" firstAttribute="trailing" secondItem="uys-xr-M1L" secondAttribute="trailing" multiplier="0.8" id="tjZ-eX-1RL"/>
                             <constraint firstItem="w8J-yu-i9a" firstAttribute="leading" secondItem="uys-xr-M1L" secondAttribute="leading" id="tr2-bJ-znK"/>
                             <constraint firstItem="w8J-yu-i9a" firstAttribute="trailing" secondItem="uys-xr-M1L" secondAttribute="trailing" id="u9v-fp-gOo"/>
@@ -280,7 +279,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteLayerTitle" translatesAutoresizingMaskIntoConstraints="NO" id="j7a-LL-Brf" userLabel="Title Image View">
                                 <rect key="frame" x="0.0" y="5" width="414" height="156"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="j7a-LL-Brf" secondAttribute="height" multiplier="1127:425" id="JXM-mj-rbC"/>
+                                    <constraint firstAttribute="width" secondItem="j7a-LL-Brf" secondAttribute="height" multiplier="1127:425" id="2wF-Aa-9SR"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -319,9 +318,9 @@
         <image name="line.horizontal.3" width="13" height="7"/>
         <image name="lineBackground" width="1130" height="2440"/>
         <image name="moreAppButton" width="238" height="228"/>
+        <image name="omikuji" width="1034" height="1933"/>
         <image name="tabBarBackground" width="1127" height="310"/>
         <image name="topNoticeButton" width="238" height="228"/>
-        <image name="topOmikuji" width="1013" height="1670"/>
         <image name="topTitle" width="908.5" height="304.5"/>
         <image name="topTopBackground" width="1127" height="1241"/>
         <image name="whiteLayerTitle" width="1127" height="425"/>
