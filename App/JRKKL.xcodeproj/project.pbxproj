@@ -13,6 +13,7 @@
 		5988D0C1161C97FE001B190C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D0C0161C97FE001B190C /* UIKit.framework */; };
 		5988D0C3161C97FE001B190C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D0C2161C97FE001B190C /* Foundation.framework */; };
 		664A9CB1299E617900791AFB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A9CB0299E617900791AFB /* Date.swift */; };
+		664A9CB3299F487500791AFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A9CB2299F487500791AFB /* ContentView.swift */; };
 		66A9371429967F5F00C696F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D0F1161C9E54001B190C /* MapKit.framework */; };
 		66B8C176299BC3BF002136ED /* LookAroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8C16C299BC3BF002136ED /* LookAroundView.swift */; };
 		66B8C177299BC3BF002136ED /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8C16D299BC3BF002136ED /* MapView.swift */; };
@@ -76,6 +77,7 @@
 		5988D0F1161C9E54001B190C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5988D0F3161C9E5C001B190C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		664A9CB0299E617900791AFB /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		664A9CB2299F487500791AFB /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		66B8C16C299BC3BF002136ED /* LookAroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookAroundView.swift; sourceTree = "<group>"; };
 		66B8C16D299BC3BF002136ED /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		66B8C16E299BC3BF002136ED /* MapViewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCoordinator.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				66B8C175299BC3BF002136ED /* MapLocationData.json */,
 				66B8C16C299BC3BF002136ED /* LookAroundView.swift */,
+				664A9CB2299F487500791AFB /* ContentView.swift */,
 				66B8C16D299BC3BF002136ED /* MapView.swift */,
 				66B8C16E299BC3BF002136ED /* MapViewCoordinator.swift */,
 				66B8C170299BC3BF002136ED /* CheckInView.swift */,
@@ -409,6 +412,7 @@
 			files = (
 				66B8C178299BC3BF002136ED /* MapViewCoordinator.swift in Sources */,
 				66B8C17C299BC3BF002136ED /* PinData.swift in Sources */,
+				664A9CB3299F487500791AFB /* ContentView.swift in Sources */,
 				87BF092E23B0EC7B00D662CE /* UIDevice.swift in Sources */,
 				87B6DAB524E26E78004ED957 /* JRkyushuLineViewController.swift in Sources */,
 				F2D3FBAF2869890E00A1439F /* StringUtils.swift in Sources */,
