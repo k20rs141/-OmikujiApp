@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         SideMenuManager.default.leftMenuNavigationController = menuNavigationController
         SideMenuManager.default.leftMenuNavigationController?.presentationStyle = .menuSlideIn
         // SideMenuのWidthサイズ
-        SideMenuManager.default.leftMenuNavigationController?.menuWidth = 320
+//        SideMenuManager.default.leftMenuNavigationController?.menuWidth = 320
         // SideMenuをSwipeGestureで非表示に
         SideMenuManager.default.leftMenuNavigationController?.enableSwipeToDismissGesture = true
     }

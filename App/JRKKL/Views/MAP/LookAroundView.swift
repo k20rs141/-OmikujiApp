@@ -53,6 +53,6 @@ struct LookAround: UIViewControllerRepresentable {
 
 struct LookAroundView_Preview: PreviewProvider {
     static var previews: some View {
-        LookAroundTestView()
+        LookAroundView()
     }
 }

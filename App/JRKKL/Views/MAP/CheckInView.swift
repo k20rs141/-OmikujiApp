@@ -62,7 +62,7 @@ struct CheckInView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 Divider()
                 VStack {
-                    LookAroundTestView()
+                    LookAroundView()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .cornerRadius(5)
                 }
