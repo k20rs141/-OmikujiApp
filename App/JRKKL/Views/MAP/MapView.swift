@@ -10,15 +10,14 @@ struct MapView: UIViewRepresentable {
     var mapView = MKMapView()
     
     public func makeUIView(context: UIViewRepresentableContext<MapView>) -> MKMapView {
-        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: "featureAnnotation")
-        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: NSStringFromClass(KashiiLineAnnotation.self))
+        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: "KashiiLineAnnotation")
         mapView.selectableMapFeatures = [.pointsOfInterest]
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
         
         for i in 0 ..< locationManager.customPin.count {
-            let annotation = CoustomMKPointAnnotation()
+            let annotation = MKPointAnnotation()
             annotation.coordinate = locationManager.customPin[i].coordinate
             annotation.title = locationManager.customPin[i].title
             let overlay = MKCircle(center: locationManager.customPin[i].coordinate, radius: 3)

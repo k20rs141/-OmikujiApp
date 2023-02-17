@@ -15,8 +15,7 @@ extension MapViewCoordinator: MKMapViewDelegate {
         // 現在地はannotationは変更しない(青いマークのままにする)
         if (annotation is MKUserLocation) { return nil }
         
-        let identifier = NSStringFromClass(KashiiLineAnnotation.self)
-        let view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier, for: annotation)
+        let view = mapView.dequeueReusableAnnotationView(withIdentifier: "KashiiLineAnnotation", for: annotation)
         if let markerAnnotationView = view as? MKMarkerAnnotationView {
             markerAnnotationView.markerTintColor = .blue
             markerAnnotationView.glyphImage = UIImage(systemName: "checkmark.circle.fill")
@@ -53,15 +52,4 @@ extension MapViewCoordinator: MKMapViewDelegate {
         }
         return MKOverlayRenderer(overlay: overlay)
     }
-}
-
-class KashiiLineAnnotation: NSObject, MKAnnotation {
-    @objc dynamic var coordinate = CLLocationCoordinate2D(latitude: 33.8216217, longitude: 130.6595216)
-    var title: String? = NSLocalizedString("SAN_FRANCISCO_TITLE", comment: "SF annotation")
-    var subtitle: String? = NSLocalizedString("SAN_FRANCISCO_SUBTITLE", comment: "SF annotation")
-}
-
-class CoustomMKPointAnnotation: MKPointAnnotation {
-    var pinColor: UIColor = UIColor.black
-    var pinPhoto: UIImageView = UIImageView(image: UIImage(systemName: "apple.logo"))
 }
