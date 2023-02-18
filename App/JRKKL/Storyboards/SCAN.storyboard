@@ -184,6 +184,13 @@
                                     <action selector="testButton:" destination="UEt-sR-sdH" eventType="touchUpInside" id="4Wk-1j-xox"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket" translatesAutoresizingMaskIntoConstraints="NO" id="LrS-rm-D1z" userLabel="Error Image View">
+                                <rect key="frame" x="107" y="653.5" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LrS-rm-D1z" secondAttribute="height" multiplier="2:1" id="JbW-iz-ZGy"/>
+                                    <constraint firstAttribute="width" constant="200" id="xKN-uy-nX5"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kcQ-Gf-MKd"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -204,6 +211,7 @@
                             <constraint firstItem="kcQ-Gf-MKd" firstAttribute="trailing" secondItem="E4c-vH-K1e" secondAttribute="trailing" id="NKQ-Ug-J2w"/>
                             <constraint firstItem="kcQ-Gf-MKd" firstAttribute="trailing" secondItem="1lp-QE-tix" secondAttribute="trailing" id="Oip-3c-kdD"/>
                             <constraint firstAttribute="trailing" secondItem="OfK-R7-o4J" secondAttribute="trailing" id="U17-Gg-0Us"/>
+                            <constraint firstItem="LrS-rm-D1z" firstAttribute="centerX" secondItem="1QT-E2-48E" secondAttribute="centerX" id="WEa-FO-fD8"/>
                             <constraint firstItem="1lp-QE-tix" firstAttribute="height" secondItem="kRd-9p-LjZ" secondAttribute="height" multiplier="0.15" id="XEV-C0-z5L"/>
                             <constraint firstItem="Sg5-Rh-3g1" firstAttribute="centerX" secondItem="1QT-E2-48E" secondAttribute="centerX" id="XLI-1b-TXU"/>
                             <constraint firstAttribute="bottom" secondItem="Sg5-Rh-3g1" secondAttribute="bottom" id="XeT-qY-Lod"/>
@@ -217,6 +225,7 @@
                             <constraint firstItem="Qam-tg-Acr" firstAttribute="top" secondItem="1QT-E2-48E" secondAttribute="top" id="h4b-hT-IAv"/>
                             <constraint firstItem="Rmg-7j-2au" firstAttribute="trailing" secondItem="kcQ-Gf-MKd" secondAttribute="trailing" id="hoV-3m-z86"/>
                             <constraint firstAttribute="bottom" secondItem="1lp-QE-tix" secondAttribute="bottom" id="muh-k2-qJD"/>
+                            <constraint firstItem="1lp-QE-tix" firstAttribute="top" secondItem="LrS-rm-D1z" secondAttribute="bottom" constant="8" id="pzI-OH-Rty"/>
                             <constraint firstItem="Qam-tg-Acr" firstAttribute="bottom" secondItem="1QT-E2-48E" secondAttribute="bottom" id="qXt-Rc-AwG"/>
                             <constraint firstItem="hth-Az-fx0" firstAttribute="trailing" secondItem="kcQ-Gf-MKd" secondAttribute="trailing" id="rWh-rb-AAT"/>
                             <constraint firstItem="gws-ss-Ec9" firstAttribute="leading" secondItem="kcQ-Gf-MKd" secondAttribute="leading" id="tL9-AB-JDN"/>
@@ -232,6 +241,7 @@
                     <connections>
                         <outlet property="backgroundImageView" destination="Qam-tg-Acr" id="hKF-2c-BJM"/>
                         <outlet property="cutoutView" destination="kRd-9p-LjZ" id="wRQ-Vk-adX"/>
+                        <outlet property="errorImageView" destination="LrS-rm-D1z" id="RwH-nN-vAC"/>
                         <outlet property="imageMaskView" destination="ObK-VA-pm8" id="t36-JN-5gi"/>
                         <outlet property="numberLabel" destination="HIe-t3-LcF" id="2fM-Xd-KRZ"/>
                         <outlet property="previewView" destination="Sg5-Rh-3g1" id="HdY-A2-98V"/>
@@ -246,7 +256,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EXf-Zu-sf5" sceneMemberID="firstResponder"/>
                 <exit id="LdQ-hY-1wQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3949" y="-1995"/>
+            <point key="canvasLocation" x="-3950.2325581395348" y="-1995.0643776824036"/>
         </scene>
     </scenes>
     <resources>
@@ -256,6 +266,7 @@
         <image name="moreAppButton" width="238" height="228"/>
         <image name="scanTarget" width="1004" height="407"/>
         <image name="tabBarBackground" width="1127" height="310"/>
+        <image name="ticket" width="606" height="306"/>
         <image name="whiteLayerTitle" width="1127" height="425"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
