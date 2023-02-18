@@ -1,35 +1,29 @@
 import SwiftUI
 import MapKit
 
-struct LookAroundView: View {
-    @State private var location: CLLocationCoordinate2D = .init(latitude: 33.65943127, longitude: 130.444117)
-
-    var body: some View {
-        VStack {
-            LookAround(location: $location)
-        }
-    }
-}
-
-struct LookAround: UIViewControllerRepresentable {
+struct LookAroundView: UIViewControllerRepresentable {
+    
     typealias UIViewControllerType = MKLookAroundViewController
     
-    @Binding var location: CLLocationCoordinate2D
+    @Binding var tappedlocation: CLLocationCoordinate2D?
+    @Binding var showLookAroundView: Bool
     
     func makeUIViewController(context: Context) -> MKLookAroundViewController {
         MKLookAroundViewController()
     }
     
     func updateUIViewController(_ uiViewController: MKLookAroundViewController, context: Context) {
-        Task {
-            if let scene = await getScene(tappedLocation: .init(latitude: location.latitude, longitude: location.longitude)) {
-                withAnimation {
-//                        self.showLookAroundView = true
-                    uiViewController.scene = scene
-                }
-            } else {
-                withAnimation {
-//                        self.showLookAroundView = false
+        if let tappedlocation {
+            Task {
+                if let scene = await getScene(tappedLocation: .init(latitude: tappedlocation.latitude, longitude: tappedlocation.longitude)) {
+                    withAnimation {
+                        self.showLookAroundView = true
+                        uiViewController.scene = scene
+                    }
+                } else {
+                    withAnimation {
+                        self.showLookAroundView = false
+                    }
                 }
             }
         }
@@ -53,6 +47,6 @@ struct LookAround: UIViewControllerRepresentable {
 
 struct LookAroundView_Preview: PreviewProvider {
     static var previews: some View {
-        LookAroundView()
+        LookAroundView(tappedlocation: .constant(CLLocationCoordinate2D(latitude: 0, longitude: 0)), showLookAroundView: .constant(true))
     }
 }
