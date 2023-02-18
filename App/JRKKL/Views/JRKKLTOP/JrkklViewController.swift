@@ -1,5 +1,6 @@
 import SideMenu
 import UIKit
+import SwiftUI
 
 class JrkklViewController: UIViewController {
     @IBOutlet var hambergerButton: UIButton! {
@@ -67,6 +68,7 @@ class JrkklViewController: UIViewController {
         case 13: openUrl("https://line.me/R/ti/p/%40573zaqtk#~")
         case 14: openUrl("https://www.tiktok.com/tag/%E9%A6%99%E6%A4%8E%E7%B7%9A?lang=ja-JP")
 //        case 13: openUrl("https://www.jrkyushu.co.jp/contact/")
+        case 15: openUIHostringController()
         case 16: openUrl(UIApplication.openSettingsURLString)
         default: break
         }
@@ -80,6 +82,14 @@ class JrkklViewController: UIViewController {
     private func openViewController(_ name: String) {
         guard let nextViewController = UIStoryboard(name: name, bundle: nil).instantiateInitialViewController() as? UINavigationController else { return }
         present(nextViewController, animated: true, completion: nil)
+    }
+    
+    private func openUIHostringController() {
+        // MAPへ遷移
+        let view = UIHostingController(rootView: ContentView())
+//        self.navigationController?.pushViewController(view, animated: true)
+        view.modalPresentationStyle = .fullScreen
+        present(view, animated: true, completion: nil)
     }
 
     private func openApp(urlScheme: String, urlString: String) {
