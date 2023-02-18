@@ -3,6 +3,13 @@ import UIKit
 import Vision
 
 class ScanViewController: UIViewController {
+    
+    @IBOutlet weak var errorImageView: UIImageView! {
+        didSet {
+            errorImageView.alpha = 0.0
+        }
+    }
+        
     @IBOutlet var previewView: ScanPreviewView!
     @IBOutlet var cutoutView: UIView!
     @IBOutlet var numberLabel: UILabel!
@@ -52,6 +59,7 @@ class ScanViewController: UIViewController {
 
     var stateArray = ["date", "serial"]
     var state = ""
+    var isHiddenErrorMessage = true // 連続表示の制御
     var result: Dictionary<String, String> = [:]
 
     // MARK: - View controller methods
@@ -260,11 +268,11 @@ class ScanViewController: UIViewController {
 
     // MARK: - UI drawing and interaction
 
-    func showString(value: String) {
+    func showMessage(value: String) {
         print("state: \(state) string: \(value)")
         print("Today: \(DateInfo.todayString())")
-        if state == "serial"
-            || (state == "date" && DateInfo.todayString() == value.replacingOccurrences(of: "-", with: "0")) {
+        // 切符の「-」部分を比較するために０に置換
+        if state == "serial" || (state == "date" && DateInfo.todayString() == value.replacingOccurrences(of: "-", with: "0")) {
             captureSessionQueue.sync {
                 // キャプチャセッションの終了
                 captureSession.stopRunning()
@@ -287,7 +295,21 @@ class ScanViewController: UIViewController {
                 }
             }
         } else {
-            // 今日の切符じゃないよメッセージ
+            // 今日の切符じゃない場合
+            if isHiddenErrorMessage {
+                isHiddenErrorMessage = false
+                DispatchQueue.main.async {
+                    UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseInOut, animations: {
+                        self.errorImageView.alpha = 1.0
+                    }, completion: { _ in
+                        UIView.animate(withDuration: 2.0, delay: 1.0, options: .curveEaseInOut, animations: {
+                            self.errorImageView.alpha = 0.0
+                        }, completion: { _ in
+                            self.isHiddenErrorMessage = true
+                        })
+                    })
+                }
+            }
         }
     }
 

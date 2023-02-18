@@ -50,7 +50,7 @@ class VisionViewController: ScanViewController {
 
         // 安定した数値があるかの確認
         if let sureNumber = numberTracker.getStableString() {
-            showString(value: sureNumber)
+            showMessage(value: sureNumber)
             numberTracker.reset(string: sureNumber)
         }
     }
