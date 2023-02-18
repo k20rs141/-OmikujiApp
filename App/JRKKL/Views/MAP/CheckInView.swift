@@ -3,9 +3,9 @@ import SwiftUI
 struct CheckInView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var locationManager = LocationManager()
-    @State private var isPresented = false
-    @Binding var checkInAleart: Bool
+    @Binding var checkInView: Bool
     @Binding var checkInNumber: Int
+    
     let screen = UIScreen.main.bounds
     
     var body: some View {
@@ -20,7 +20,7 @@ struct CheckInView: View {
                         .background(Color("JRKyusyuColor"))
                     HStack {
                         Button(action: {
-                            self.checkInAleart = false
+                            self.checkInView = false
                         }, label: {
                             Image(systemName: "xmark")
                                 .resizable()
@@ -62,9 +62,6 @@ struct CheckInView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 Divider()
                 VStack {
-                    LookAroundView()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .cornerRadius(5)
                 }
                 .frame(maxWidth: .infinity, maxHeight: screen.height * 0.13)
             }
@@ -81,8 +78,9 @@ struct CheckInView: View {
     }
 }
 
-//struct CheckInView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CheckInView(checkInAleart: )
-//    }
-//}
+struct CheckInView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        CheckInView(checkInView: .constant(false), checkInNumber: .constant(0))
+    }
+}
