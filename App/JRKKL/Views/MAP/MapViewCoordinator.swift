@@ -33,7 +33,7 @@ extension MapViewCoordinator: MKMapViewDelegate {
         } else {
             for i in 0 ..< parent.locationManager.customPin.count {
                 if view.annotation?.title?!.applyingTransform(.fullwidthToHalfwidth, reverse: false) == parent.locationManager.customPin[i].title.applyingTransform(.fullwidthToHalfwidth, reverse: false) {
-//                    parent.checkInAlert = true
+                    parent.checkInView = true
                     parent.checkInNumber = i
                     print("KashiiLine annotation accessory view")
                     print(i)
@@ -51,5 +51,15 @@ extension MapViewCoordinator: MKMapViewDelegate {
             return circleRenderer
         }
         return MKOverlayRenderer(overlay: overlay)
+    }
+    
+    @objc func tappedOnMap(_ sender: UILongPressGestureRecognizer) {
+        guard let mapView = sender.view as? MKMapView else { return }
+        
+        let touchLocation = sender.location(in: sender.view)
+        let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: sender.view)
+        let impactHeavy = UIImpactFeedbackGenerator(style: .medium)
+        impactHeavy.impactOccurred()
+        parent.tappedLocation = locationCoordinate
     }
 }
