@@ -6,7 +6,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     // サイドメニュの項目は，ここで定義
     // 動作は，トップメニュ（AnimationViewController）で設定
-    private var items: [String] = ["", "ホーム", "JR九州アプリ「JR九州」", "JR九州Webサイト", "九州産業大学アプリ「KSU」", "九州産業大学Webサイト", "", "九州の旅とお取り寄せ", "", "Twitter（#香椎線）", "Instagram（香椎地区統括）", "Instagram（客室乗務員）", "Facebook（鉄道プロモ）", "JR九州公式LINEアカウント", "TikTok（#香椎線）", "", "バージョン：\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "") (\(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""))", ""]
+    private var items: [String] = ["", "ホーム", "JR九州アプリ「JR九州」", "JR九州Webサイト", "九州産業大学アプリ「KSU」", "九州産業大学Webサイト", "", "九州の旅とお取り寄せ", "", "Twitter（#香椎線）", "Instagram（香椎地区統括）", "Instagram（客室乗務員）", "Facebook（鉄道プロモ）", "JR九州公式LINEアカウント", "TikTok（#香椎線）", "GPSチェックイン", "バージョン：\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "") (\(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""))", ""]
 
     let jrq1stColor: UIColor = UIColor(named: "Jrq1stColor") ?? .white
     let jrq2ndColor: UIColor = UIColor(named: "Jrq2ndColor") ?? .white
