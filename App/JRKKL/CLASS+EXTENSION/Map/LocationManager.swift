@@ -6,6 +6,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var customPin = [PinData]()
     @Published var checkInAlert = false
     @Published var checkInMessage = ""
+    @Published var isDenied = false
     
     let locationManager = CLLocationManager()
     static let shared = LocationManager()
@@ -17,6 +18,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.distanceFilter = 0.5
+        // 現在地の座標をすぐに呼び出す
+        self.locationManager.startUpdatingLocation()
         loadJson()
     }
     
@@ -43,6 +46,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             manager.requestLocation()
         // ユーザーが設定から位置情報を許可してない場合
         case .denied:
+            self.isDenied = true
             manager.requestWhenInUseAuthorization()
         // ユーザーが位置情報を許可している場合
         case .authorizedAlways, .authorizedWhenInUse:
@@ -73,7 +77,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             let mapPoint = MKMapPoint(userLocation.coordinate)
             // マップ上のポイントを MKCircleRenderer 領域内のポイントに変換
             let rendererPoint = renderer.point(for: mapPoint)
-            checkInAlert = true
             if renderer.path.contains(rendererPoint) {
                 checkInMessage = "\(checkInNumber)チェックインが完了しました!"
                 print("----------------------\(checkInNumber)チェックインが完了しました。----------------------")
@@ -81,6 +84,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 checkInMessage = "\(checkInNumber)チェックインが未完了です。領域内に入ってください!"
                 print("----------------------\(checkInNumber)チェックインが未完了です。領域内に入ってください。----------------------")
             }
+            checkInAlert = true
         }
         print("locations.last\(String(describing: userLocation?.coordinate))")
         print("香椎線のチェックインを行いました！")
