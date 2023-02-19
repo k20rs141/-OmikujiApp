@@ -66,9 +66,9 @@ struct CheckInView: View {
                 .frame(maxWidth: .infinity, maxHeight: screen.height * 0.13)
             }
         }
-        .onDisappear {
-            dismiss()
-        }
+//        .onDisappear {
+//            dismiss()
+//        }
         .alert("\(locationManager.checkInMessage)", isPresented: $locationManager.checkInAlert, actions: {
             
         })
