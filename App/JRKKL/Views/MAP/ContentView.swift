@@ -2,6 +2,7 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
+    @Environment(\.dismiss) private var dismiss
     @ObservedObject var locationManager = LocationManager()
     @State private var checkInView = false
     @State private var checkInNumber = 0
@@ -16,24 +17,39 @@ struct ContentView: View {
             MapView(checkInView: $checkInView, checkInNumber: $checkInNumber, tappedLocation: $tappedLocation, showUserLocation: $showUserLocation)
                 .ignoresSafeArea()
             HStack {
+                VStack {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.gray)
+                            .padding()
+                            .background(.ultraThickMaterial)
+                            .cornerRadius(25)
+                    }
+                    Spacer()
+                }
+                .padding(.leading)
                 Spacer()
                 VStack {
                     Button {
 
                     } label: {
                         Image(systemName: "map.fill")
-                            .foregroundColor(.secondary)
+                            .foregroundColor(.gray)
                             .padding()
-                            .background(.white)
+                            .background(.ultraThickMaterial)
                             .cornerRadius(8)
                     }
                     Button {
                         self.showUserLocation.toggle()
                     } label: {
                         Image(systemName: showUserLocation ? "location.fill" : "location")
-                            .foregroundColor(showUserLocation ? .blue : .secondary)
+                            .foregroundColor(showUserLocation ? .blue : .gray)
                             .padding()
-                            .background(.white)
+                            .background(.ultraThickMaterial)
                             .cornerRadius(8)
                     }
                     Spacer()
