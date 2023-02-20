@@ -19,9 +19,9 @@ struct CheckInView: View {
                         .frame(maxWidth: .infinity, maxHeight: screen.height * 0.06)
                         .background(Color("JRKyusyuColor"))
                     HStack {
-                        Button(action: {
+                        Button {
                             self.checkInView = false
-                        }, label: {
+                        } label: {
                             Image(systemName: "xmark")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -33,7 +33,7 @@ struct CheckInView: View {
                                         .background(Circle().foregroundColor(Color("PopUpViewColor")))
                                         .frame(width: 45, height: 45)
                                 }
-                        })
+                        }
                         .padding(.leading)
                         Spacer()
                     }
@@ -47,16 +47,23 @@ struct CheckInView: View {
                         .frame(width: 60, height: 60)
                         .foregroundColor(Color("JRKyusyuColor"))
                     Spacer()
-                    Button {
-                        locationManager.checkLocation(checkInNumber: checkInNumber)
-                    } label: {
-                        Text("チェックインする")
-                            .foregroundColor(.white)
-                            .font(.callout)
-                            .fontWeight(.bold)
-                            .frame(width: screen.width * 0.45, height: screen.height * 0.04)
-                            .background(.red)
-                            .cornerRadius(50)
+                    if locationManager.customPin[checkInNumber].checked {
+                        Text("チェックイン済みです")
+                            .foregroundColor(.gray.opacity(0.5))
+                            .padding(.bottom)
+                    } else {
+                        Button {
+                            locationManager.checkLocation(checkInNumber: checkInNumber)
+                        } label: {
+                            Text("チェックインする")
+                                .foregroundColor(.white)
+                                .font(.callout)
+                                .fontWeight(.bold)
+                                .frame(width: screen.width * 0.45, height: screen.height * 0.04)
+                                .background(.red)
+                                .cornerRadius(25)
+                                .padding(.bottom)
+                        }
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -66,12 +73,14 @@ struct CheckInView: View {
                 .frame(maxWidth: .infinity, maxHeight: screen.height * 0.13)
             }
         }
-//        .onDisappear {
-//            dismiss()
-//        }
-        .alert("\(locationManager.checkInMessage)", isPresented: $locationManager.checkInAlert, actions: {
-            
-        })
+        .alert(locationManager.checkInMessage, isPresented: $locationManager.checkInAlert) {
+            Button("OK") {
+                
+            }
+        }
+        .fullScreenCover(isPresented: $locationManager.isAnimation) {
+//            AnimationView(checkInNumber: $checkInNumber)
+        }
         .frame(width: screen.width * 0.8, height: screen.height * 0.4, alignment: .center)
         .background(Color("PopUpViewColor"))
         .cornerRadius(12)
