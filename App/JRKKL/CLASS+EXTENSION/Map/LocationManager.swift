@@ -5,6 +5,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var userLocation: CLLocation?
     @Published var customPin = [PinData]()
     @Published var checkInAlert = false
+    @Published var isAnimation = false
     @Published var checkInMessage = ""
     @Published var isDenied = false
     
@@ -78,13 +79,14 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             // マップ上のポイントを MKCircleRenderer 領域内のポイントに変換
             let rendererPoint = renderer.point(for: mapPoint)
             if renderer.path.contains(rendererPoint) {
+                isAnimation = true
                 checkInMessage = "\(checkInNumber)チェックインが完了しました!"
                 print("----------------------\(checkInNumber)チェックインが完了しました。----------------------")
             } else {
+                checkInAlert = true
                 checkInMessage = "\(checkInNumber)チェックインが未完了です。領域内に入ってください!"
                 print("----------------------\(checkInNumber)チェックインが未完了です。領域内に入ってください。----------------------")
             }
-            checkInAlert = true
         }
         print("locations.last\(String(describing: userLocation?.coordinate))")
         print("香椎線のチェックインを行いました！")
