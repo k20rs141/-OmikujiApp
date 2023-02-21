@@ -13,6 +13,7 @@
 		5988D0C1161C97FE001B190C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D0C0161C97FE001B190C /* UIKit.framework */; };
 		5988D0C3161C97FE001B190C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D0C2161C97FE001B190C /* Foundation.framework */; };
 		6628F56C29A3BB87009780D0 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6628F56B29A3BB86009780D0 /* AnimationView.swift */; };
+		6628F57529A50234009780D0 /* EffectsLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 6628F57429A50234009780D0 /* EffectsLibrary */; };
 		664A9CB1299E617900791AFB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A9CB0299E617900791AFB /* Date.swift */; };
 		664A9CB3299F487500791AFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A9CB2299F487500791AFB /* ContentView.swift */; };
 		66A9371429967F5F00C696F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988D0F1161C9E54001B190C /* MapKit.framework */; };
@@ -116,6 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66A9371429967F5F00C696F7 /* MapKit.framework in Frameworks */,
+				6628F57529A50234009780D0 /* EffectsLibrary in Frameworks */,
 				58F5E94F1C60723400D3AE12 /* WebKit.framework in Frameworks */,
 				4B70CA8217D880E200FC9F45 /* SystemConfiguration.framework in Frameworks */,
 				5988D0C1161C97FE001B190C /* UIKit.framework in Frameworks */,
@@ -321,6 +323,7 @@
 			name = JRKKL;
 			packageProductDependencies = (
 				87BF6AF3287F013100D34C91 /* SideMenu */,
+				6628F57429A50234009780D0 /* EffectsLibrary */,
 			);
 			productName = KsLife;
 			productReference = 5988D0BC161C97FE001B190C /* JrKyushuKashiiLine.app */;
@@ -361,6 +364,7 @@
 			mainGroup = 5988D0B1161C97FD001B190C;
 			packageReferences = (
 				87BD0A68287EFB6700D4424D /* XCRemoteSwiftPackageReference "SideMenu" */,
+				6628F57329A50234009780D0 /* XCRemoteSwiftPackageReference "effects-library" */,
 			);
 			productRefGroup = 5988D0BD161C97FE001B190C /* Products */;
 			projectDirPath = "";
@@ -744,6 +748,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6628F57329A50234009780D0 /* XCRemoteSwiftPackageReference "effects-library" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GetStream/effects-library";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		87BD0A68287EFB6700D4424D /* XCRemoteSwiftPackageReference "SideMenu" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jonkykong/SideMenu";
@@ -755,6 +767,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6628F57429A50234009780D0 /* EffectsLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6628F57329A50234009780D0 /* XCRemoteSwiftPackageReference "effects-library" */;
+			productName = EffectsLibrary;
+		};
 		87BF6AF3287F013100D34C91 /* SideMenu */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 87BD0A68287EFB6700D4424D /* XCRemoteSwiftPackageReference "SideMenu" */;
