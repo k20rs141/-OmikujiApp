@@ -27,7 +27,7 @@ struct ContentView: View {
                             .foregroundColor(.gray)
                             .padding()
                             .background(.ultraThickMaterial)
-                            .cornerRadius(25)
+                            .cornerRadius(50)
                     }
                     Spacer()
                 }
@@ -77,7 +77,7 @@ struct ContentView: View {
                     .offset(x: screen.width * -0.25, y: screen.height * 0.30)
             }
             if checkInView {
-                CheckInView(checkInView: $checkInView ,checkInNumber: $checkInNumber)
+                CheckInView(locationManager: locationManager, checkInView: $checkInView ,checkInNumber: $checkInNumber)
                     .transition(.scale)
                     .animation(.easeInOut.delay(2.0), value: checkInView)
             }
