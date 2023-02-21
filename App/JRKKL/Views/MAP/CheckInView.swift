@@ -1,8 +1,7 @@
 import SwiftUI
 
 struct CheckInView: View {
-    @Environment(\.dismiss) private var dismiss
-    @ObservedObject var locationManager = LocationManager()
+    @ObservedObject var locationManager: LocationManager
     @Binding var checkInView: Bool
     @Binding var checkInNumber: Int
     
@@ -73,13 +72,13 @@ struct CheckInView: View {
                 .frame(maxWidth: .infinity, maxHeight: screen.height * 0.13)
             }
         }
-        .alert(locationManager.checkInMessage, isPresented: $locationManager.checkInAlert) {
+        .alert("チェックイン範囲外です。範囲内に移動してください!", isPresented: $locationManager.checkInAlert) {
             Button("OK") {
                 
             }
         }
-        .fullScreenCover(isPresented: $locationManager.isAnimation) {
-//            AnimationView(checkInNumber: $checkInNumber)
+        .sheet(isPresented: $locationManager.isAnimation) {
+            AnimationView(locationManager: locationManager, checkInNumber: $checkInNumber)
         }
         .frame(width: screen.width * 0.8, height: screen.height * 0.4, alignment: .center)
         .background(Color("PopUpViewColor"))
@@ -90,6 +89,6 @@ struct CheckInView: View {
 struct CheckInView_Previews: PreviewProvider {
     
     static var previews: some View {
-        CheckInView(checkInView: .constant(false), checkInNumber: .constant(0))
+        CheckInView(locationManager: LocationManager(), checkInView: .constant(false), checkInNumber: .constant(0))
     }
 }
