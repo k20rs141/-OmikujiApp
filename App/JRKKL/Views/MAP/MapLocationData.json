@@ -4,111 +4,127 @@
         "latitude": 33.65943127,
         "longitude": 130.444117,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Kashii"
     },
     {
         "title": "和白",
         "latitude": 33.68910465,
         "longitude": 130.42955918,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Wajiro"
     },
     {
         "title": "奈多",
         "latitude": 33.68678239,
         "longitude": 130.41263687,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Nata"
     },
     {
         "title": "雁ノ巣",
         "latitude": 33.68393097,
         "longitude": 130.40360645,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Gannosu"
     },
     {
         "title": "海の中道",
         "latitude": 33.6638476,
         "longitude": 130.36141365,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Uminonakamichi"
     },
     {
         "title": "西戸崎",
         "latitude": 33.65025211,
         "longitude": 130.35815741,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Saitozaki"
     },
     {
         "title": "香椎神宮",
         "latitude": 33.65016321,
         "longitude": 130.4523939,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Kashii-jingu"
     },
     {
         "title": "舞松原",
         "latitude": 33.64490065,
         "longitude": 130.45539797,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Maimatsubara"
     },
     {
         "title": "土井",
         "latitude": 33.63511685,
         "longitude": 130.46606452,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Doi"
     },
     {
         "title": "伊賀",
         "latitude": 33.62073972,
         "longitude": 130.47358112,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Iga"
     },
     {
         "title": "長者原",
         "latitude": 33.61348076,
         "longitude": 130.47772194,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Chojabaru"
     },
     {
         "title": "酒殿",
         "latitude": 33.60247111,
         "longitude": 130.48645492,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Sakado"
     },
     {
         "title": "須恵",
         "latitude": 33.59681354,
         "longitude": 130.49815867,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Sue"
     },
     {
         "title": "須恵中央",
         "latitude": 33.58693393,
         "longitude": 130.50510156,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Sue-chuo"
     },
     {
         "title": "新原",
         "latitude": 33.57914299,
         "longitude": 130.50874239,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Shinbaru"
     },
     {
         "title": "宇美",
         "latitude": 33.5690735,
         "longitude": 130.51327516,
         "category": "station",
-        "checked": false
+        "checked": false,
+        "image": "Umi"
     }
 ]

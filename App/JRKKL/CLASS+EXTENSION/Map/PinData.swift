@@ -9,6 +9,7 @@ struct PinData: Identifiable, Codable {
     var longitude: Double
     var category: String
     var checked: Bool
+    var image: String
 
     enum CodingKeys: String, CodingKey {
         case title
@@ -16,6 +17,7 @@ struct PinData: Identifiable, Codable {
         case longitude
         case category
         case checked
+        case image
     }
     
     var coordinate: CLLocationCoordinate2D {
