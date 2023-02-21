@@ -6,7 +6,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var customPin = [PinData]()
     @Published var checkInAlert = false
     @Published var isAnimation = false
-    @Published var checkInMessage = ""
     @Published var isDenied = false
     
     let locationManager = CLLocationManager()
@@ -80,11 +79,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             let rendererPoint = renderer.point(for: mapPoint)
             if renderer.path.contains(rendererPoint) {
                 isAnimation = true
-                checkInMessage = "\(checkInNumber)チェックインが完了しました!"
                 print("----------------------\(checkInNumber)チェックインが完了しました。----------------------")
             } else {
                 checkInAlert = true
-                checkInMessage = "\(checkInNumber)チェックインが未完了です。領域内に入ってください!"
                 print("----------------------\(checkInNumber)チェックインが未完了です。領域内に入ってください。----------------------")
             }
         }
