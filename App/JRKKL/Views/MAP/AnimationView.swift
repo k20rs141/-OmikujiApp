@@ -1,21 +1,13 @@
 import SwiftUI
-import EffectsLibrary
+import ConfettiSwiftUI
 
 struct AnimationView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var locationManager: LocationManager
-    @State private var wish = false
-    @State private var finishWish = false
+    @State private var confettiCounter = 0
     @Binding var checkInNumber: Int
     
     let screen = UIScreen.main.bounds
-    var config = FireworksConfig(
-        backgroundColor: .black.opacity(0.4),
-        intensity: .medium,
-        lifetime: .short,
-        initialVelocity: .fast,
-        fadeOut: .slow
-    )
     
     var body: some View {
         ZStack {
@@ -46,32 +38,24 @@ struct AnimationView: View {
                             .frame(width: screen.width * 0.30, height: screen.height * 0.05)
                             .background(.red)
                             .cornerRadius(25)
-                            .offset(x: 0, y: 70)
                     }
+                    .offset(x: 0, y: 70)
                 }
             }
-            FireworksView(config: config)
-                .opacity(wish && !finishWish ? 1 : 0)
-                .ignoresSafeArea()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+//            .background(.black.opacity(wish && !finishWish ? 0.4 : 0))
+            VStack {
+                ConfettiCannon(counter: $confettiCounter, num: 100, openingAngle: Angle(degrees: 65), closingAngle: Angle(degrees: 90), radius: 800.0)
+            }
+            .offset(x: screen.width * -0.45, y: screen.height * 0.45)
+            VStack {
+                ConfettiCannon(counter: $confettiCounter, num: 100, openingAngle: Angle(degrees: 90), closingAngle: Angle(degrees: 105), radius: 800.0)
+            }
+            .offset(x: screen.width * 0.45, y: screen.height * 0.45)
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                doAnimation()
-            }
-        }
-    }
-    
-    func doAnimation() {
-        withAnimation(.spring()) {
-            wish = true
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            withAnimation(.easeInOut(duration: 1.0)) {
-                finishWish = true
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                wish = false
-                finishWish = false
+                confettiCounter = 1
             }
         }
     }
