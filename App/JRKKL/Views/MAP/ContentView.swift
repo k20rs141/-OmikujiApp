@@ -76,11 +76,10 @@ struct ContentView: View {
                     .padding(.leading)
                     .offset(x: screen.width * -0.25, y: screen.height * 0.30)
             }
-            if checkInView {
-                CheckInView(locationManager: locationManager, checkInView: $checkInView ,checkInNumber: $checkInNumber)
-                    .transition(.scale)
-                    .animation(.easeInOut.delay(2.0), value: checkInView)
-            }
+            CheckInView(locationManager: locationManager, checkInView: $checkInView ,checkInNumber: $checkInNumber)
+                .opacity(checkInView ? 1 : 0)
+                .scaleEffect(checkInView ? 1 : 0)
+                .animation(.easeInOut(duration: 0.2), value: checkInView)
         }
     }
 }
