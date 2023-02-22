@@ -71,7 +71,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func checkLocation(checkInNumber: Int) {
         self.locationManager.startUpdatingLocation()
         if let userLocation = userLocation {
-            let overlay = MKCircle(center: customPin[checkInNumber].coordinate, radius: 3)
+            let overlay = MKCircle(center: customPin[checkInNumber].coordinate, radius: 20)
             let renderer = MKCircleRenderer(circle: overlay)
             // 現在地の座標を(MKMapPoint)に変換
             let mapPoint = MKMapPoint(userLocation.coordinate)

@@ -28,7 +28,7 @@ struct MapView: UIViewRepresentable {
             let annotation = MKPointAnnotation()
             annotation.coordinate = locationManager.customPin[i].coordinate
             annotation.title = locationManager.customPin[i].title
-            let overlay = MKCircle(center: locationManager.customPin[i].coordinate, radius: 3)
+            let overlay = MKCircle(center: locationManager.customPin[i].coordinate, radius: 20)
             mapView.addAnnotation(annotation)
             mapView.addOverlay(overlay)
         }
@@ -49,7 +49,7 @@ struct MapView: UIViewRepresentable {
             if let userLocation = locationManager.userLocation {
                 let mapRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
                 uiView.setRegion(mapRegion, animated: true)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     self.showUserLocation = false
                 }
             }
