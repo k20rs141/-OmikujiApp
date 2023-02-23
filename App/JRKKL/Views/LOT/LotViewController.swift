@@ -55,13 +55,6 @@ class LotViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // シェイク回転バージョン
-//        UIView.animate(withDuration: 0.3, delay: 0, options: [ .repeat, .autoreverse ], animations: {
-//            let angle = 15 * CGFloat.pi / 180
-//            let reverseAngle = -15 * CGFloat.pi / 180
-//            self.shakeLeftImage.transform = CGAffineTransform.init(rotationAngle: angle)
-//            self.shakeRightImage.transform = CGAffineTransform.init(rotationAngle: reverseAngle)
-//        })
         // シェイク縦バージョン
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.repeat, .autoreverse], animations: {
             self.shakeLeftImageView.center.y += 20

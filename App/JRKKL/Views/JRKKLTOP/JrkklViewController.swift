@@ -9,12 +9,6 @@ class JrkklViewController: UIViewController {
         }
     }
 
-    @IBOutlet var frequentlyAskedQuestionsButton: UIButton! {
-        didSet {
-            frequentlyAskedQuestionsButton.tintColor = UIColor(named: "Jrq2ndColor") ?? .blue
-        }
-    }
-
     @IBOutlet var leftButton: UIButton! {
         didSet {
             leftButton.contentMode = .scaleAspectFit
@@ -104,14 +98,6 @@ class JrkklViewController: UIViewController {
     @IBAction func hambergerButton(_ sender: UIButton) {
         guard let menu = SideMenuManager.default.leftMenuNavigationController else { return }
         present(menu, animated: true, completion: nil)
-    }
-
-    @IBAction func frequentlyAskedQuestionsButton(_ sender: UIButton) {
-        guard let nextViewController = UIStoryboard(name: "NEWS", bundle: nil).instantiateInitialViewController() as? UINavigationController else { return }
-        present(nextViewController, animated: false, completion: nil)
-    }
-
-    @IBAction func myUnwindAction(segue: UIStoryboardSegue) {
     }
 
     @IBAction func informationButton(_ sender: UIButton) {
