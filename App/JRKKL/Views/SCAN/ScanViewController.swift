@@ -57,10 +57,10 @@ class ScanViewController: UIViewController {
 
     var visionToAVFTransform = CGAffineTransform.identity
 
-    var stateArray = ["date", "serial"]
+    var states = ["date", "serial"]
     var state = ""
     var isHiddenErrorMessage = true // 連続表示の制御
-    var result: Dictionary<String, String> = [:]
+    var results: Dictionary<String, String> = [:]
 
     // MARK: - View controller methods
     
@@ -208,7 +208,7 @@ class ScanViewController: UIViewController {
     }
 
     func setupCamera() {
-        state = stateArray.randomElement()!
+        state = states.randomElement()!
         guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back) else {
             print("Could not create capture device.")
             return
@@ -277,11 +277,11 @@ class ScanViewController: UIViewController {
                 // キャプチャセッションの終了
                 captureSession.stopRunning()
 
-                stateArray.removeAll(where: { $0 == state })
-                result.updateValue(value, forKey: state) // 結果を保存
+                states.removeAll(where: { $0 == state })
+                results.updateValue(value, forKey: state) // 結果を保存
 
-                if stateArray.count != 0 {
-                    state = stateArray.randomElement()!
+                if states.count != 0 {
+                    state = states.randomElement()!
                 }
 
                 DispatchQueue.main.async {
@@ -317,7 +317,7 @@ class ScanViewController: UIViewController {
         numberLabel.isHidden = true
 
         captureSessionQueue.async {
-            if self.stateArray.count <= minimumStateArrayCount {
+            if self.states.count <= minimumStateArrayCount {
                 // キャプチャセッションの終了
                 if self.captureSession.isRunning {
                     self.captureSession.stopRunning()
@@ -327,8 +327,8 @@ class ScanViewController: UIViewController {
                     // LotViewControllerへ遷移
                     let storyboard = UIStoryboard(name: "LOT", bundle: .main)
                     let lotViewController = storyboard.instantiateViewController(withIdentifier: "LotViewController") as! LotViewController
-                    lotViewController.dateString = self.result["date"]?.replacingOccurrences(of: "-", with: "0") ?? "000"
-                    lotViewController.serialString = self.result["serial"] ?? "111"
+                    lotViewController.dateString = self.results["date"]?.replacingOccurrences(of: "-", with: "0") ?? "000"
+                    lotViewController.serialString = self.results["serial"] ?? "111"
                     self.present(lotViewController, animated: true, completion: nil)
                 }
             } else {
