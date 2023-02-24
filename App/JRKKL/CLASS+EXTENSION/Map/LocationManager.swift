@@ -9,6 +9,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var isDenied = false
     
     let locationManager = CLLocationManager()
+    var moniteringRegion = CLCircularRegion()
     static let shared = LocationManager()
     
     override init() {
@@ -23,6 +24,11 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         // 現在地の座標をすぐに呼び出す
         self.locationManager.startUpdatingLocation()
         loadJson()
+        
+        //Apple Campus
+        let appleLocation = CLLocationCoordinate2DMake(37.33182, -122.03118)
+        // モニタリング領域を作成
+        self.moniteringRegion = CLCircularRegion.init(center: appleLocation, radius: 15, identifier: "monitoringRegion")
     }
     
     func requestPermission() {
@@ -34,8 +40,38 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         self.userLocation = location
     }
     
+    // モニタリング開始成功時
+    func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
+        print("モニタリング開始")
+    }
+
+    // モニタリングに失敗時
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+        print("モニタリング失敗")
+    }
+
+    // ジオフェンス領域侵入時
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        print("ジオフェンス侵入")
+    }
+
+    // ジオフェンス領域離脱時
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        print("ジオフェンス離脱")
+    }
+
+    // ジオフェンスの情報が取得できない時
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
+        print("モニタリングエラー")
+    }
+
+    // requestStateが呼ばれた時
+    public func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
+        if state == .inside {
+            print("領域内")
+        } else {
+            print("領域外")
+        }
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
