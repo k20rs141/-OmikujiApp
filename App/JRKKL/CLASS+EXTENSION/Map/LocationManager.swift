@@ -18,6 +18,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.distanceFilter = 0.5
+        self.locationManager.showsBackgroundLocationIndicator = true
+        self.locationManager.allowsBackgroundLocationUpdates = true
         // 現在地の座標をすぐに呼び出す
         self.locationManager.startUpdatingLocation()
         loadJson()
