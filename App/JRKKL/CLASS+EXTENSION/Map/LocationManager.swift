@@ -1,6 +1,7 @@
 import MapKit
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+    @Published var notificationModel = NotificationModel()
     @Published var authorizationStatus: CLAuthorizationStatus
     @Published var userLocation: CLLocation?
     @Published var customPin = [PinData]()
@@ -25,7 +26,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         self.locationManager.startUpdatingLocation()
         loadJson()
         
-        //Apple Campus
+        // Apple Campus
         let appleLocation = CLLocationCoordinate2DMake(37.33182, -122.03118)
         // モニタリング領域を作成
         self.moniteringRegion = CLCircularRegion.init(center: appleLocation, radius: 15, identifier: "monitoringRegion")
@@ -53,6 +54,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     // ジオフェンス領域侵入時
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("ジオフェンス侵入")
+        notificationModel.setNotification()
     }
 
     // ジオフェンス領域離脱時
@@ -117,13 +119,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             let rendererPoint = renderer.point(for: mapPoint)
             if renderer.path.contains(rendererPoint) {
                 isAnimation = true
-                print("----------------------\(checkInNumber)チェックインが完了しました。----------------------")
             } else {
                 checkInAlert = true
-                print("----------------------\(checkInNumber)チェックインが未完了です。領域内に入ってください。----------------------")
             }
         }
-        print("locations.last\(String(describing: userLocation?.coordinate))")
-        print("香椎線のチェックインを行いました！")
     }
 }
