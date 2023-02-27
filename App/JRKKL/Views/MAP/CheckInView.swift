@@ -68,6 +68,18 @@ struct CheckInView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 Divider()
                 VStack {
+                    Button {
+                        locationManager.moniteringStart(moniteringNumber: checkInNumber)
+                    } label: {
+                        Text("開始")
+                            .foregroundColor(.white)
+                            .font(.callout)
+                            .fontWeight(.bold)
+                            .frame(width: screen.width * 0.25, height: screen.height * 0.04)
+                            .background(.red)
+                            .cornerRadius(25)
+                            .padding(.bottom)
+                    }
                 }
                 .frame(maxWidth: .infinity, maxHeight: screen.height * 0.13)
             }
