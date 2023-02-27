@@ -9,6 +9,8 @@ class NotificationModel: ObservableObject {
     init() {
         // フォアグラウンド通知用
         UNUserNotificationCenter.current().delegate = self.notificationDelegate
+        // フォアグラウンド時に配信した全ての通知を削除
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
     }
 
     func setNotification() {
