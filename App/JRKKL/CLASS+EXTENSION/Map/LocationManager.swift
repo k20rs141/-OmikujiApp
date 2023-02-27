@@ -5,6 +5,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus
     @Published var userLocation: CLLocation?
     @Published var customPin = [PinData]()
+    @Published var checkInNumber = 0
     @Published var checkInAlert = false
     @Published var isAnimation = false
     @Published var isDenied = false
@@ -25,11 +26,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         // 現在地の座標をすぐに呼び出す
         self.locationManager.startUpdatingLocation()
         loadJson()
-        
-        // Apple Campus
-        let appleLocation = CLLocationCoordinate2DMake(37.33182, -122.03118)
-        // モニタリング領域を作成
-        self.moniteringRegion = CLCircularRegion.init(center: appleLocation, radius: 15, identifier: "monitoringRegion")
     }
     
     func requestPermission() {
@@ -54,7 +50,17 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     // ジオフェンス領域侵入時
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("ジオフェンス侵入")
-        notificationModel.setNotification()
+        var count = 0
+        let timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { timer in
+            count += 1
+            self.notificationModel.setNotification()
+            print("Timer fired! Count: \(count)")
+            
+            if count >= 4 {
+                self.notificationModel.removeNotification()
+                timer.invalidate() // タイマーを停止する
+            }
+        }
     }
 
     // ジオフェンス領域離脱時
@@ -123,5 +129,20 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 checkInAlert = true
             }
         }
+    }
+    // モニタリング開始
+    func moniteringStart(moniteringNumber: Int) {
+        self.checkInNumber = moniteringNumber
+        // CheckInViewで選択したピンのモニタリングを開始
+        self.moniteringRegion = CLCircularRegion.init(center: customPin[checkInNumber].coordinate, radius: 100, identifier: "monitoringRegion")
+        self.locationManager.startMonitoring(for: self.moniteringRegion)
+    }
+    // モニタリング停止
+    func moniteringStop(moniteringNumber: Int) {
+        self.locationManager.stopMonitoring(for: self.moniteringRegion)
+    }
+    // 現在の状態(領域内or領域外)を取得
+    func requestState(moniteringNumber: Int) {
+        self.locationManager.requestState(for: self.moniteringRegion)
     }
 }
