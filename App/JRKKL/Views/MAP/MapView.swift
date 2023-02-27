@@ -2,7 +2,7 @@ import SwiftUI
 import MapKit
 
 struct MapView: UIViewRepresentable {
-    @ObservedObject var locationManager = LocationManager.shared
+    @ObservedObject var locationManager: LocationManager
     @Binding var checkInView: Bool
     @Binding var checkInNumber: Int
     @Binding var tappedLocation: CLLocationCoordinate2D?
@@ -49,9 +49,9 @@ struct MapView: UIViewRepresentable {
             if let userLocation = locationManager.userLocation {
                 let mapRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
                 uiView.setRegion(mapRegion, animated: true)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    self.showUserLocation = false
-                }
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//                    self.showUserLocation = false
+//                }
             }
         }
     }
