@@ -22,7 +22,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.distanceFilter = 0.5
         self.locationManager.showsBackgroundLocationIndicator = true
-        self.locationManager.allowsBackgroundLocationUpdates = true
         // 現在地の座標をすぐに呼び出す
         self.locationManager.startUpdatingLocation()
         loadJson()
@@ -132,13 +131,15 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     // モニタリング開始
     func moniteringStart(moniteringNumber: Int) {
-        self.checkInNumber = moniteringNumber
+        checkInNumber = moniteringNumber
+        self.locationManager.allowsBackgroundLocationUpdates = true
         // CheckInViewで選択したピンのモニタリングを開始
         self.moniteringRegion = CLCircularRegion.init(center: customPin[checkInNumber].coordinate, radius: 100, identifier: "monitoringRegion")
         self.locationManager.startMonitoring(for: self.moniteringRegion)
     }
     // モニタリング停止
     func moniteringStop(moniteringNumber: Int) {
+        self.locationManager.allowsBackgroundLocationUpdates = false
         self.locationManager.stopMonitoring(for: self.moniteringRegion)
     }
     // 現在の状態(領域内or領域外)を取得
