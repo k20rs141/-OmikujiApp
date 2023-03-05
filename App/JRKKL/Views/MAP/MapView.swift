@@ -17,10 +17,18 @@ struct MapView: UIViewRepresentable {
         mapView.selectableMapFeatures = [.pointsOfInterest]
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
-        mapView.userTrackingMode = .follow
+        mapView.userTrackingMode = .followWithHeading
         
         mapType.showsTraffic = true
         mapView.preferredConfiguration = mapType
+        
+        // コンパスの表示
+        let compass = MKCompassButton(mapView: mapView)
+        compass.compassVisibility = .adaptive
+        compass.frame = CGRect(x: UIScreen.main.bounds.width * 0.85, y: UIScreen.main.bounds.height * 0.2, width: 40, height: 40)
+        mapView.addSubview(compass)
+        // デフォルトのコンパスを非表示
+        mapView.showsCompass = false
         
         mapView.removeAnnotations(mapView.annotations)
         
