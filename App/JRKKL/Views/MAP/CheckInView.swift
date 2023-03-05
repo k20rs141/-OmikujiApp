@@ -26,19 +26,23 @@ struct CheckInView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 VStack(alignment: .leading) {
-                    Text("自動アラート")
-                        .foregroundColor(Color("JRKyusyuColor"))
-                        .font(.caption)
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity, maxHeight: screen.height * 0.035)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                            .stroke(lineWidth: 1)
+                    Button {
+                        
+                    } label: {
+                        Text("通知ON")
                             .foregroundColor(Color("JRKyusyuColor"))
-                        )
-                        .padding(.trailing)
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .frame(maxWidth: screen.width * 0.2, maxHeight: screen.height * 0.035)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                .stroke(lineWidth: 1)
+                                .foregroundColor(Color("JRKyusyuColor"))
+                            )
+                            .padding(.trailing)
+                    }
                 }
-                .frame(maxWidth: screen.width * 0.3, maxHeight: .infinity)
+                .frame(maxWidth: screen.width * 0.35, maxHeight: .infinity)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             HStack {
@@ -55,7 +59,7 @@ struct CheckInView: View {
                         .padding(.horizontal)
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: screen.height * 0.055)
+            .frame(maxWidth: .infinity, maxHeight: screen.height * 0.065)
         }
         .frame(maxWidth: .infinity, maxHeight: screen.height * 0.17)
         .background(Color("PopUpViewColor"))
