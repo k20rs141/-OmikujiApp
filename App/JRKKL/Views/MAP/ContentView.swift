@@ -9,6 +9,8 @@ struct ContentView: View {
     @State private var tappedLocation: CLLocationCoordinate2D?
     @State private var showLookAround = false
     @State private var showUserLocation = false
+    @State private var mapSettingView = false
+    
     let alertTitle: String = "位置情報サービスをオンにして使用して下さい。"
     let screen = UIScreen.main.bounds
     
@@ -35,9 +37,9 @@ struct ContentView: View {
                 Spacer()
                 VStack {
                     Button {
-
+                        mapSettingView = true
                     } label: {
-                        Image(systemName: "map.fill")
+                        Image(systemName: "gearshape.fill")
                             .foregroundColor(.gray)
                             .padding()
                             .background(.ultraThickMaterial)
@@ -80,6 +82,10 @@ struct ContentView: View {
                 .opacity(checkInView ? 1 : 0)
                 .scaleEffect(checkInView ? 1 : 0)
                 .animation(.easeInOut(duration: 0.2), value: checkInView)
+                .position(x: screen.width * 0.5, y: screen.height * 0.81)
+        }
+        .fullScreenCover(isPresented: $mapSettingView) {
+            SettingView(locationManager: locationManager)
         }
     }
 }
