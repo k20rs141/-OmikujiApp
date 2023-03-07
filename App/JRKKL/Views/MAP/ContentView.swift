@@ -10,13 +10,14 @@ struct ContentView: View {
     @State private var showLookAround = false
     @State private var showUserLocation = false
     @State private var mapSettingView = false
+    @State private var mapConfiguration = "Standard"
     
     let alertTitle: String = "位置情報サービスをオンにして使用して下さい。"
     let screen = UIScreen.main.bounds
     
     var body: some View {
         ZStack {
-            MapView(locationManager: locationManager, checkInView: $checkInView, checkInNumber: $checkInNumber, tappedLocation: $tappedLocation, showUserLocation: $showUserLocation)
+            MapView(locationManager: locationManager, checkInView: $checkInView, checkInNumber: $checkInNumber, tappedLocation: $tappedLocation, showUserLocation: $showUserLocation, mapConfiguration: $mapConfiguration)
                 .ignoresSafeArea()
             HStack {
                 VStack {
@@ -78,6 +79,15 @@ struct ContentView: View {
                     .padding(.leading)
                     .offset(x: screen.width * -0.25, y: screen.height * 0.30)
             }
+            // CheckInViewが選択された時に背景をグレーにするためのView
+            VStack {
+                EmptyView()
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(checkInView ? .black.opacity(0.5) : .clear)
+            .onTapGesture {
+                checkInView = false
+            }
             CheckInView(locationManager: locationManager, checkInView: $checkInView ,checkInNumber: $checkInNumber)
                 .opacity(checkInView ? 1 : 0)
                 .scaleEffect(checkInView ? 1 : 0)
@@ -85,7 +95,7 @@ struct ContentView: View {
                 .position(x: screen.width * 0.5, y: screen.height * 0.81)
         }
         .fullScreenCover(isPresented: $mapSettingView) {
-            SettingView(locationManager: locationManager)
+            SettingView(locationManager: locationManager, mapConfiguration: $mapConfiguration)
         }
     }
 }
