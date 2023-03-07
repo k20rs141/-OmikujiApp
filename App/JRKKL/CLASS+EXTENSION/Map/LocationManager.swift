@@ -10,6 +10,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var isAnimation = false
     @Published var isDenied = false
     @Published var geoDistance = 100
+    @Published var address = ""
     
     let locationManager = CLLocationManager()
     var moniteringRegion = CLCircularRegion()
@@ -150,5 +151,29 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     // 通知を知らせる範囲(ジオフェンス)
     func changeGeoDistance(geoDistance: Int) {
         self.geoDistance = geoDistance
+    }
+    // 逆ジオコーディング
+    func reverseGeocoding(checkInNumber: Int) {
+        let location = CLLocation(latitude: customPin[checkInNumber].latitude, longitude: customPin[checkInNumber].longitude)
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            if let firstPlacemark = placemarks?.first {
+                var placeName = ""
+                // 都道府県
+                if let prefectures = firstPlacemark.administrativeArea {
+                    placeName.append(prefectures)
+                }
+                // 市区町村
+                if let municipalities = firstPlacemark.locality {
+                    placeName.append(municipalities)
+                }
+                // 番地
+                if let address = firstPlacemark.thoroughfare {
+                    placeName.append(address)
+                } else if let address = firstPlacemark.subLocality {
+                    placeName.append(address)
+                }
+                self.address = placeName
+            }
+        }
     }
 }

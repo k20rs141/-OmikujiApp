@@ -35,6 +35,8 @@ extension MapViewCoordinator: MKMapViewDelegate {
                 if view.annotation?.title?!.applyingTransform(.fullwidthToHalfwidth, reverse: false) == parent.locationManager.customPin[i].title.applyingTransform(.fullwidthToHalfwidth, reverse: false) {
                     parent.checkInView = true
                     parent.checkInNumber = i
+                    // 逆ジオコーディング
+                    parent.locationManager.reverseGeocoding(checkInNumber: i)
                     print("KashiiLine annotation accessory view")
                     print(i)
                 }
