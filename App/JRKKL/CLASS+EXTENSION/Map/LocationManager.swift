@@ -9,6 +9,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var checkInAlert = false
     @Published var isAnimation = false
     @Published var isDenied = false
+    @Published var geoDistance = 100
     
     let locationManager = CLLocationManager()
     var moniteringRegion = CLCircularRegion()
@@ -134,7 +135,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         checkInNumber = moniteringNumber
         self.locationManager.allowsBackgroundLocationUpdates = true
         // CheckInViewで選択したピンのモニタリングを開始
-        self.moniteringRegion = CLCircularRegion.init(center: customPin[checkInNumber].coordinate, radius: 20, identifier: "monitoringRegion")
+        self.moniteringRegion = CLCircularRegion.init(center: customPin[checkInNumber].coordinate, radius: CLLocationDistance(geoDistance), identifier: "monitoringRegion")
         self.locationManager.startMonitoring(for: self.moniteringRegion)
     }
     // モニタリング停止
@@ -145,5 +146,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     // 現在の状態(領域内or領域外)を取得
     func requestState(moniteringNumber: Int) {
         self.locationManager.requestState(for: self.moniteringRegion)
+    }
+    // 通知を知らせる範囲(ジオフェンス)
+    func changeGeoDistance(geoDistance: Int) {
+        self.geoDistance = geoDistance
     }
 }
