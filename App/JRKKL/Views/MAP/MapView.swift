@@ -7,6 +7,7 @@ struct MapView: UIViewRepresentable {
     @Binding var checkInNumber: Int
     @Binding var tappedLocation: CLLocationCoordinate2D?
     @Binding var showUserLocation: Bool
+    @Binding var mapConfiguration: String
     
     public typealias UIViewType = MKMapView
     var mapView = MKMapView()
@@ -61,6 +62,22 @@ struct MapView: UIViewRepresentable {
 //                    self.showUserLocation = false
 //                }
             }
+        }
+        // マップの切り替え
+        switch mapConfiguration {
+        case "Standard":
+            let mapType = MKStandardMapConfiguration(elevationStyle: .realistic)
+            mapType.showsTraffic = true
+            uiView.preferredConfiguration = mapType
+        case "Hybrid":
+            let mapType = MKHybridMapConfiguration(elevationStyle: .realistic)
+            mapType.showsTraffic = true
+            uiView.preferredConfiguration = mapType
+        case "Imagery":
+            let mapType = MKImageryMapConfiguration(elevationStyle: .realistic)
+            uiView.preferredConfiguration = mapType
+        default:
+            break
         }
     }
     
