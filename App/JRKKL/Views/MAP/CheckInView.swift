@@ -19,34 +19,38 @@ struct CheckInView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 15))
                 }
                 .frame(maxWidth: screen.width * 0.25, maxHeight: .infinity)
-                VStack(alignment: .leading, spacing: 10) {
-                    Text(locationManager.customPin[checkInNumber].title)
-                        .font(.title2)
-                    Text("福岡県福岡市東区")
-                        .font(.caption)
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                VStack(alignment: .leading) {
-                    Button {
-                        locationManager.moniteringStart(moniteringNumber: checkInNumber)
-                        notificationButton.toggle()
-                        Haptics.mediumRoll()
-                    } label: {
-                        Text("通知ON")
-                            .foregroundColor(notificationButton ? .white : Color("JRKyusyuColor"))
-                            .font(.caption)
-                            .frame(maxWidth: screen.width * 0.2, maxHeight: screen.height * 0.035)
-                            .background(notificationButton ? Color("JRKyusyuColor") : .clear)
-                            .cornerRadius(20)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(lineWidth: 1)
-                                    .foregroundColor(Color("JRKyusyuColor"))
-                            )
-                            .padding(.trailing)
+                ZStack {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text(locationManager.customPin[checkInNumber].title)
+                            .font(.title2)
+                        Text(locationManager.address)
+                            .font(.subheadline)
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    VStack {
+                        Button {
+                            locationManager.moniteringStart(moniteringNumber: checkInNumber)
+                            notificationButton.toggle()
+                            Haptics.mediumRoll()
+                        } label: {
+                            Text("通知ON")
+                                .foregroundColor(notificationButton ? .white : Color("JRKyusyuColor"))
+                                .font(.caption)
+                                .frame(maxWidth: screen.width * 0.2, maxHeight: screen.height * 0.038)
+                                .background(notificationButton ? Color("JRKyusyuColor") : .clear)
+                                .cornerRadius(20)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(lineWidth: 1)
+                                        .foregroundColor(Color("JRKyusyuColor"))
+                                )
+                                .padding(.trailing)
+                                .padding(.top)
+                        }
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
                 }
-                .frame(maxWidth: screen.width * 0.35, maxHeight: .infinity)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             HStack {
