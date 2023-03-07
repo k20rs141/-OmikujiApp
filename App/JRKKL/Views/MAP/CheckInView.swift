@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CheckInView: View {
     @ObservedObject var locationManager: LocationManager
+    @State private var notificationButton = false
     @Binding var checkInView: Bool
     @Binding var checkInNumber: Int
     
@@ -27,17 +28,20 @@ struct CheckInView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 VStack(alignment: .leading) {
                     Button {
-                        
+                        locationManager.moniteringStart(moniteringNumber: checkInNumber)
+                        notificationButton.toggle()
+                        Haptics.mediumRoll()
                     } label: {
                         Text("通知ON")
-                            .foregroundColor(Color("JRKyusyuColor"))
+                            .foregroundColor(notificationButton ? .white : Color("JRKyusyuColor"))
                             .font(.caption)
-                            .fontWeight(.bold)
                             .frame(maxWidth: screen.width * 0.2, maxHeight: screen.height * 0.035)
+                            .background(notificationButton ? Color("JRKyusyuColor") : .clear)
+                            .cornerRadius(20)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 20)
-                                .stroke(lineWidth: 1)
-                                .foregroundColor(Color("JRKyusyuColor"))
+                                    .stroke(lineWidth: 1)
+                                    .foregroundColor(Color("JRKyusyuColor"))
                             )
                             .padding(.trailing)
                     }
