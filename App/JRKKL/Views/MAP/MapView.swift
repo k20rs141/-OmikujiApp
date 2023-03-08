@@ -45,9 +45,8 @@ struct MapView: UIViewRepresentable {
         let longTapGesture = UILongPressGestureRecognizer(target: context.coordinator, action: #selector(MapViewCoordinator.tappedOnMap(_:)))
         mapView.addGestureRecognizer(longTapGesture)
         
-        // 福岡県の庁舎の座標
-        let initLocation = CLLocationCoordinate2D(latitude: 33.60639, longitude: 130.41806)
-        let mapRegion = MKCoordinateRegion(center: initLocation, latitudinalMeters: 100, longitudinalMeters: 100)
+        // 香椎駅の座標
+        let mapRegion = MKCoordinateRegion(center: locationManager.customPin[1].coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
         mapView.setRegion(mapRegion, animated: true)
         
         return mapView
