@@ -37,7 +37,7 @@ struct MapView: UIViewRepresentable {
             let annotation = MKPointAnnotation()
             annotation.coordinate = locationManager.customPin[i].coordinate
             annotation.title = locationManager.customPin[i].title
-            let overlay = MKCircle(center: locationManager.customPin[i].coordinate, radius: 20)
+            let overlay = MKCircle(center: locationManager.customPin[i].coordinate, radius: 100)
             mapView.addAnnotation(annotation)
             mapView.addOverlay(overlay)
         }
@@ -46,7 +46,7 @@ struct MapView: UIViewRepresentable {
         mapView.addGestureRecognizer(longTapGesture)
         
         // 香椎駅の座標
-        let mapRegion = MKCoordinateRegion(center: locationManager.customPin[1].coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
+        let mapRegion = MKCoordinateRegion(center: locationManager.customPin[1].coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
         mapView.setRegion(mapRegion, animated: true)
         
         return mapView
@@ -55,7 +55,7 @@ struct MapView: UIViewRepresentable {
     public func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
         if showUserLocation {
             if let userLocation = locationManager.userLocation {
-                let mapRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
+                let mapRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
                 uiView.setRegion(mapRegion, animated: true)
 //                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
 //                    self.showUserLocation = false
