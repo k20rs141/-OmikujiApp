@@ -199,6 +199,13 @@ struct SettingView: View {
                             Toggle("", isOn: $isSpeechGuide)
                                 .toggleStyle(SwitchToggleStyle(tint: Color.gray))
                         }
+                        .onChange(of: isSpeechGuide) { newValue in
+                            if isSpeechGuide {
+                                locationManager.changeSpeechGuide(announce: true)
+                            } else {
+                                locationManager.changeSpeechGuide(announce: false)
+                            }
+                        }
                     }
                     .padding()
                     .frame(width: screen.width * 0.9, height: screen.height * 0.07)

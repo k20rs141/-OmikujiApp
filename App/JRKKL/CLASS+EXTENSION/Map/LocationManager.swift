@@ -11,6 +11,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var isDenied = false
     @Published var geoDistance = 100
     @Published var address = ""
+    @Published var notificationCount = 1
+    @Published var notificationTime = 2
+    @Published var isSpeechGuide = false
     
     let locationManager = CLLocationManager()
     var moniteringRegion = CLCircularRegion()
@@ -27,6 +30,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         // 現在地の座標をすぐに呼び出す
         self.locationManager.startUpdatingLocation()
         loadJson()
+        loadUserDefauls()
     }
     
     func requestPermission() {
@@ -52,12 +56,12 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("ジオフェンス侵入")
         var count = 0
-        let timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { timer in
+        let timer = Timer.scheduledTimer(withTimeInterval: Double(notificationTime), repeats: true) { timer in
             count += 1
-            self.notificationModel.setNotification()
+            self.notificationModel.setNotification(notify: self.isSpeechGuide)
             print("Timer fired! Count: \(count)")
             
-            if count >= 4 {
+            if count >= self.notificationCount {
                 self.notificationModel.removeNotification()
                 timer.invalidate() // タイマーを停止する
             }
@@ -118,7 +122,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func checkLocation(checkInNumber: Int) {
         self.locationManager.startUpdatingLocation()
         if let userLocation = userLocation {
-            let overlay = MKCircle(center: customPin[checkInNumber].coordinate, radius: 20)
+            let overlay = MKCircle(center: customPin[checkInNumber].coordinate, radius: 100)
             let renderer = MKCircleRenderer(circle: overlay)
             // 現在地の座標を(MKMapPoint)に変換
             let mapPoint = MKMapPoint(userLocation.coordinate)
@@ -136,7 +140,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         checkInNumber = moniteringNumber
         self.locationManager.allowsBackgroundLocationUpdates = true
         // CheckInViewで選択したピンのモニタリングを開始
-        self.moniteringRegion = CLCircularRegion.init(center: customPin[checkInNumber].coordinate, radius: CLLocationDistance(geoDistance), identifier: "monitoringRegion")
+        self.moniteringRegion = CLCircularRegion.init(center: customPin[checkInNumber].coordinate, radius: CLLocationDistance(geoDistance), identifier: "monitoringRegion\(checkInNumber)")
         self.locationManager.startMonitoring(for: self.moniteringRegion)
     }
     // モニタリング停止
@@ -149,8 +153,20 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         self.locationManager.requestState(for: self.moniteringRegion)
     }
     // 通知を知らせる範囲(ジオフェンス)
-    func changeGeoDistance(geoDistance: Int) {
-        self.geoDistance = geoDistance
+    func changeGeoDistance(radius: Int) {
+        self.geoDistance = radius
+    }
+    // 通知の回数
+    func changeNotificationCount(count: Int) {
+        self.notificationCount = count
+    }
+    // 通知の間隔
+    func changeNotificationTimer(interval: Int) {
+        self.notificationTime = interval
+    }
+    // 通知の音声のオン・オフ
+    func changeSpeechGuide(announce: Bool) {
+        self.isSpeechGuide = announce
     }
     // 逆ジオコーディング
     func reverseGeocoding(checkInNumber: Int) {
@@ -175,5 +191,16 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 self.address = placeName
             }
         }
+    }
+    // UserDefaultsの値の読み込み
+    func loadUserDefauls() {
+        let geoDistance = UserDefaults.standard.integer(forKey: "geoDistance")
+        let notificationCount = UserDefaults.standard.integer(forKey: "notificationCount")
+        let notificationTime = UserDefaults.standard.integer(forKey: "notificationTime")
+        let isSpeechGuide = UserDefaults.standard.bool(forKey: "isSpeechGuide")
+        self.geoDistance = geoDistance
+        self.notificationCount = notificationCount
+        self.notificationTime = notificationTime
+        self.isSpeechGuide = isSpeechGuide
     }
 }
