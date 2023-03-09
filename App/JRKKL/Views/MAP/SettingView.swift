@@ -65,7 +65,6 @@ struct SettingView: View {
                                 .frame(width: screen.width * 0.25, height: screen.height * 0.07, alignment: .trailing)
                         }
                     }
-                    .foregroundColor(.primary)
                     .padding()
                     .frame(width: screen.width * 0.9, height: screen.height * 0.075)
                     .background(Color("PopUpViewColor"))
@@ -110,7 +109,6 @@ struct SettingView: View {
                             Text("通知を知らせる範囲を\n指定してください。")
                         })
                     }
-                    .foregroundColor(.primary)
                     .padding()
                     .frame(width: screen.width * 0.9, height: screen.height * 0.075)
                     .background(Color("PopUpViewColor"))
@@ -134,7 +132,6 @@ struct SettingView: View {
                                 .frame(width: screen.width * 0.25, height: screen.height * 0.07, alignment: .trailing)
                         }
                     }
-                    .foregroundColor(.primary)
                     .padding()
                     .frame(width: screen.width * 0.9, height: screen.height * 0.075)
                     .background(Color("PopUpViewColor"))
@@ -158,7 +155,6 @@ struct SettingView: View {
                                 .frame(width: screen.width * 0.25, height: screen.height * 0.07, alignment: .trailing)
                         }
                     }
-                    .foregroundColor(.primary)
                     .padding()
                     .frame(width: screen.width * 0.9, height: screen.height * 0.075)
                     .background(Color("PopUpViewColor"))
@@ -182,7 +178,6 @@ struct SettingView: View {
                                 .frame(width: screen.width * 0.33, height: screen.height * 0.07, alignment: .trailing)
                         }
                     }
-                    .foregroundColor(.primary)
                     .padding()
                     .frame(width: screen.width * 0.9, height: screen.height * 0.075)
                     .background(Color("PopUpViewColor"))
@@ -205,7 +200,6 @@ struct SettingView: View {
                                 .toggleStyle(SwitchToggleStyle(tint: Color.gray))
                         }
                     }
-                    .foregroundColor(.primary)
                     .padding()
                     .frame(width: screen.width * 0.9, height: screen.height * 0.07)
                     .background(Color("PopUpViewColor"))
