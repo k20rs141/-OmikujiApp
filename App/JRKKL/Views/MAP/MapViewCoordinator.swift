@@ -17,10 +17,14 @@ extension MapViewCoordinator: MKMapViewDelegate {
         
         let view = mapView.dequeueReusableAnnotationView(withIdentifier: "KashiiLineAnnotation", for: annotation)
         if let markerAnnotationView = view as? MKMarkerAnnotationView {
-            markerAnnotationView.markerTintColor = .blue
-            markerAnnotationView.glyphImage = UIImage(systemName: "checkmark.circle.fill")
-            markerAnnotationView.animatesWhenAdded = true
-            markerAnnotationView.canShowCallout = true
+            for i in 0 ..< parent.locationManager.customPin.count {
+                if view.annotation?.title?!.applyingTransform(.fullwidthToHalfwidth, reverse: false) == parent.locationManager.customPin[i].title.applyingTransform(.fullwidthToHalfwidth, reverse: false) {
+                    markerAnnotationView.markerTintColor = parent.locationManager.customPin[i].checked ? .red : UIColor(named: "Jrq2ndColor")
+                    markerAnnotationView.glyphImage = UIImage(systemName: "checkmark.circle.fill")
+                    markerAnnotationView.animatesWhenAdded = true
+                    markerAnnotationView.canShowCallout = true
+                }
+            }
             
             markerAnnotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
@@ -47,8 +51,8 @@ extension MapViewCoordinator: MKMapViewDelegate {
     public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay.isKind(of: MKCircle.self) {
             let circleRenderer = MKCircleRenderer(overlay: overlay)
-            circleRenderer.fillColor = .blue.withAlphaComponent(0.1)
-            circleRenderer.strokeColor = .blue
+            circleRenderer.fillColor = UIColor(named: "Jrq2ndColor")?.withAlphaComponent(0.4)
+            circleRenderer.strokeColor = UIColor(named: "Jrq2ndColor")
             circleRenderer.lineWidth = 1
             return circleRenderer
         }
