@@ -14,6 +14,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var notificationCount = 1
     @Published var notificationTime = 2
     @Published var isSpeechGuide = false
+    @Published var moniteringRegions: [CLRegion]?
     
     let locationManager = CLLocationManager()
     var moniteringRegion = CLCircularRegion()
@@ -31,6 +32,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         self.locationManager.startUpdatingLocation()
         loadJson()
         loadUserDefauls()
+        moniteringCounter()
     }
     
     func requestPermission() {
@@ -140,13 +142,33 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         checkInNumber = moniteringNumber
         self.locationManager.allowsBackgroundLocationUpdates = true
         // CheckInViewで選択したピンのモニタリングを開始
-        self.moniteringRegion = CLCircularRegion.init(center: customPin[checkInNumber].coordinate, radius: CLLocationDistance(geoDistance), identifier: "monitoringRegion\(checkInNumber)")
+        self.moniteringRegion = CLCircularRegion(center: customPin[checkInNumber].coordinate, radius: CLLocationDistance(geoDistance), identifier: "\(customPin[checkInNumber].title)")
+        // モニタリングは最大20個、半径は１〜400mまで
         self.locationManager.startMonitoring(for: self.moniteringRegion)
+        print("maximumRegionMonitoringDistance: \(locationManager.maximumRegionMonitoringDistance)")
     }
     // モニタリング停止
     func moniteringStop(moniteringNumber: Int) {
+        checkInNumber = moniteringNumber
         self.locationManager.allowsBackgroundLocationUpdates = false
+        self.moniteringRegion = CLCircularRegion(center: customPin[checkInNumber].coordinate, radius: CLLocationDistance(geoDistance), identifier: "\(customPin[checkInNumber].title)")
         self.locationManager.stopMonitoring(for: self.moniteringRegion)
+    }
+    // モニタリング全停止
+    func removeMonitoring() {
+        locationManager.monitoredRegions.forEach {
+            self.locationManager.stopMonitoring(for: $0)
+        }
+        self.moniteringRegions = nil
+    }
+    // モニタリング数確認
+    func moniteringCounter() {
+        let count = locationManager.monitoredRegions.count
+        moniteringRegions = Array(locationManager.monitoredRegions)
+    }
+    
+    func stopAnnounce() {
+        notificationModel.stopSpeechSynthesizer()
     }
     // 現在の状態(領域内or領域外)を取得
     func requestState(moniteringNumber: Int) {

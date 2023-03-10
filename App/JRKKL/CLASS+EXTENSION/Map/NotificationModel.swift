@@ -51,6 +51,10 @@ class NotificationModel: ObservableObject {
         utterance.rate = 0.5
         synthesizer.speak(utterance)
     }
+    
+    func stopSpeechSynthesizer() {
+        synthesizer.stopSpeaking(at: .immediate)
+    }
     // 日本語ボイスの生成
     func makeVoice(_ identifier: String) -> AVSpeechSynthesisVoice! {
         let voices = AVSpeechSynthesisVoice.speechVoices()
