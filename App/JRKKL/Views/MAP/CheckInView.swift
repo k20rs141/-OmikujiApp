@@ -27,9 +27,9 @@ struct CheckInView: View {
                             .font(.subheadline)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    .foregroundColor(.black)
                     VStack {
                         Button {
-                            locationManager.moniteringStart(moniteringNumber: checkInNumber)
                             notificationButton.toggle()
                             Haptics.mediumRoll()
                         } label: {
@@ -47,6 +47,15 @@ struct CheckInView: View {
                                 .padding(.trailing)
                                 .padding(.top)
                         }
+                        .onChange(of: notificationButton) { newValue in
+                            if notificationButton {
+                                locationManager.moniteringStart(moniteringNumber: checkInNumber)
+                                locationManager.requestState(moniteringNumber: checkInNumber)
+                            } else {
+                                locationManager.moniteringStop(moniteringNumber: checkInNumber)
+                            }
+                            UserDefaults.standard.set(notificationButton, forKey: "notificationButton")
+                        }
                         Spacer()
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
@@ -55,14 +64,17 @@ struct CheckInView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             HStack {
                 Button {
-                    locationManager.checkLocation(checkInNumber: checkInNumber)
+                    if !locationManager.customPin[checkInNumber].checked {
+                        locationManager.checkLocation(checkInNumber: checkInNumber)
+                    }
                 } label: {
-                    Text("チェックイン")
+                    Text(locationManager.customPin[checkInNumber].checked ? "チェックイン済み" : "チェックイン")
                         .foregroundColor(.white)
                         .font(.callout)
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity, maxHeight: screen.height * 0.045)
                         .background(Color("JRKyusyuColor"))
+                        .opacity(locationManager.customPin[checkInNumber].checked ? 0.6 : 1)
                         .cornerRadius(10)
                         .padding(.horizontal)
                 }
@@ -73,6 +85,10 @@ struct CheckInView: View {
         .background(Color("PopUpViewColor"))
         .cornerRadius(15)
         .padding(.horizontal)
+        .onAppear {
+            let notificationButton = UserDefaults.standard.bool(forKey: "notificationButton")
+            self.notificationButton = notificationButton
+        }
         .alert("チェックイン範囲外です。範囲内に移動してください!", isPresented: $locationManager.checkInAlert) {
             Button("OK") {
                 
