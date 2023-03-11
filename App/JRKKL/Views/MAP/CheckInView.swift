@@ -47,14 +47,14 @@ struct CheckInView: View {
                                 .padding(.trailing)
                                 .padding(.top)
                         }
-                        .onChange(of: notificationButton) { newValue in
+                        .onChange(of: notificationButton) { _ in
                             if notificationButton {
                                 locationManager.moniteringStart(moniteringNumber: checkInNumber)
                                 locationManager.requestState(moniteringNumber: checkInNumber)
                             } else {
                                 locationManager.moniteringStop(moniteringNumber: checkInNumber)
                             }
-                            UserDefaults.standard.set(notificationButton, forKey: "notificationButton")
+                            UserDefaults.standard.set(notificationButton, forKey: "notificationButton\(checkInNumber)")
                         }
                         Spacer()
                     }
@@ -85,9 +85,11 @@ struct CheckInView: View {
         .background(Color("PopUpViewColor"))
         .cornerRadius(15)
         .padding(.horizontal)
-        .onAppear {
-            let notificationButton = UserDefaults.standard.bool(forKey: "notificationButton")
-            self.notificationButton = notificationButton
+        .onChange(of: checkInView) { _ in
+            if checkInView {
+                let notificationButton = UserDefaults.standard.bool(forKey: "notificationButton\(checkInNumber)")
+                self.notificationButton = notificationButton
+            }
         }
         .alert("チェックイン範囲外です。範囲内に移動してください!", isPresented: $locationManager.checkInAlert) {
             Button("OK") {
