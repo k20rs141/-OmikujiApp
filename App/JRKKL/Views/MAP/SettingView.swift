@@ -87,16 +87,14 @@ struct SettingView: View {
                                 .frame(width: screen.width * 0.25, height: screen.height * 0.07, alignment: .trailing)
                             //                                .background(.orange)
                         }
-                        .onReceive(Just(geoDistance)) { _ in
-                            //最大文字数を超えたら、最大文字数までの文字列を代入する
-                            if geoDistance.count > numberLimit {
-                                geoDistance = String(geoDistance.prefix(numberLimit))
-                            }
-                        }
                         .alert("通知範囲", isPresented: $presentAlert, actions: {
                             TextField("100", text: $bufText)
                                 .keyboardType(.numberPad)
                             Button("OK", action: {
+                                //最大文字数を５桁までに制限
+                                if bufText.count > numberLimit {
+                                    bufText = String(bufText.prefix(numberLimit))
+                                }
                                 UserDefaults.standard.set(bufText, forKey: "geoDistance")
                                 geoDistance = bufText
                                 self.bufText = ""
