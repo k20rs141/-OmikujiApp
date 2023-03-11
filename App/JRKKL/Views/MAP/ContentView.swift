@@ -94,6 +94,10 @@ struct ContentView: View {
                 .animation(.easeInOut(duration: 0.2), value: checkInView)
                 .position(x: screen.width * 0.5, y: screen.height * 0.81)
         }
+        .onAppear {
+            let mapConfiguration = UserDefaults.standard.string(forKey: "mapConfiguration") ?? "Standard"
+            self.mapConfiguration = mapConfiguration
+        }
         .fullScreenCover(isPresented: $mapSettingView) {
             SettingView(locationManager: locationManager, mapConfiguration: $mapConfiguration)
         }
