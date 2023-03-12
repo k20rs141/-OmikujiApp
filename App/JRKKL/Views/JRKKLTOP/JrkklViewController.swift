@@ -3,6 +3,8 @@ import UIKit
 import SwiftUI
 
 class JrkklViewController: UIViewController {
+    let locationManager = LocationManager()
+    
     @IBOutlet var hambergerButton: UIButton! {
         didSet {
             hambergerButton.tintColor = UIColor(named: "Jrq2ndColor") ?? .blue
@@ -80,7 +82,7 @@ class JrkklViewController: UIViewController {
     
     private func openUIHostringController() {
         // MAPへ遷移
-        let view = UIHostingController(rootView: ContentView())
+        let view = UIHostingController(rootView: ContentView(locationManager: locationManager))
 //        self.navigationController?.pushViewController(view, animated: true)
         view.modalPresentationStyle = .fullScreen
         present(view, animated: true, completion: nil)
