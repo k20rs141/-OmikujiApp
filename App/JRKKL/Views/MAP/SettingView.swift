@@ -5,12 +5,11 @@ struct SettingView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var locationManager: LocationManager
     @State private var presentAlert = false
-    @State private var isSpeechGuide = false
     @State private var isModalSheet = false
     // マップの種類
     @Binding var mapConfiguration: String
     // 通知を知らせる範囲
-    @State private var geoDistance = "200"
+    @State private var geoDistance = "100"
     @State private var bufText = ""
     // 通知回数
     @State private var notificationCount = 1
@@ -19,11 +18,13 @@ struct SettingView: View {
     // 追跡設定
     @State private var trackingMode = "位置情報追跡"
     // 音声案内
+    @State private var isSpeechGuide = false
     @State private var title = 0
     
     let screen = UIScreen.main.bounds
-    let mapInfomation = [0, 1, 2, 3, 4, 5]
     let numberLimit = 5
+    let mapType = ["Standard", "Hybrid", "Imagery"]
+    let trackingType = ["バッテリー節約", "位置情報追跡"]
     
     var body: some View {
         VStack(spacing: 0) {
@@ -41,51 +42,32 @@ struct SettingView: View {
                 }
                 Text("マップ設定")
                     .font(.largeTitle)
+                    .fontWeight(.bold)
                 Spacer()
             }
             .padding()
             ScrollView {
                 VStack(spacing: 13) {
                     HStack {
-                        Text("マップの種類")
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "questionmark.circle")
-                                .foregroundColor(.gray)
-                                .font(.title2)
-                        }
+                        SetupItem(text: "マップの種類")
                         Spacer()
                         Button {
                             title = 0
+                            print(title)
                             isModalSheet = true
                         } label: {
                             Text("\(mapConfiguration)")
-                                .foregroundColor(.gray)
-                                .frame(width: screen.width * 0.25, height: screen.height * 0.07, alignment: .trailing)
-                        }
+                                .textStyle()
+                        }.tag(title)
                     }
-                    .padding()
-                    .frame(width: screen.width * 0.9, height: screen.height * 0.075)
-                    .background(Color("PopUpViewColor"))
-                    .cornerRadius(13)
+                    .cardStyle()
                     HStack {
-                        Text("通知範囲")
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "questionmark.circle")
-                                .foregroundColor(.gray)
-                                .font(.title2)
-                        }
-                        Spacer()
+                        SetupItem(text: "通知範囲")
                         Button {
                             presentAlert = true
                         } label: {
                             Text("\(geoDistance)m")
-                                .foregroundColor(.gray)
-                                .frame(width: screen.width * 0.25, height: screen.height * 0.07, alignment: .trailing)
-                            //                                .background(.orange)
+                                .textStyle()
                         }
                         .alert("通知範囲", isPresented: $presentAlert, actions: {
                             TextField("100", text: $bufText)
@@ -107,118 +89,67 @@ struct SettingView: View {
                             Text("通知を知らせる範囲を\n指定してください。")
                         })
                     }
-                    .padding()
-                    .frame(width: screen.width * 0.9, height: screen.height * 0.075)
-                    .background(Color("PopUpViewColor"))
-                    .cornerRadius(13)
+                    .cardStyle()
                     HStack {
-                        Text("通知回数")
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "questionmark.circle")
-                                .foregroundColor(.gray)
-                                .font(.title2)
-                        }
-                        Spacer()
+                        SetupItem(text: "通知回数")
                         Button {
                             title = 1
+                            print(title)
                             isModalSheet = true
                         } label: {
                             Text("\(notificationCount)回")
-                                .foregroundColor(.gray)
-                                .frame(width: screen.width * 0.25, height: screen.height * 0.07, alignment: .trailing)
-                        }
+                                .textStyle()
+                        }.tag(title)
                     }
-                    .padding()
-                    .frame(width: screen.width * 0.9, height: screen.height * 0.075)
-                    .background(Color("PopUpViewColor"))
-                    .cornerRadius(13)
+                    .cardStyle()
                     HStack {
-                        Text("通知間隔")
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "questionmark.circle")
-                                .foregroundColor(.gray)
-                                .font(.title2)
-                        }
-                        Spacer()
+                        SetupItem(text: "通知間隔")
                         Button {
                             title = 2
+                            print(title)
                             isModalSheet = true
                         } label: {
                             Text("\(notificationTime)秒")
-                                .foregroundColor(.gray)
-                                .frame(width: screen.width * 0.25, height: screen.height * 0.07, alignment: .trailing)
-                        }
+                                .textStyle()
+                        }.tag(title)
                     }
-                    .padding()
-                    .frame(width: screen.width * 0.9, height: screen.height * 0.075)
-                    .background(Color("PopUpViewColor"))
-                    .cornerRadius(13)
+                    .cardStyle()
                     HStack {
-                        Text("追跡設定")
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "questionmark.circle")
-                                .foregroundColor(.gray)
-                                .font(.title2)
-                        }
-                        Spacer()
+                        SetupItem(text: "追跡設定")
                         Button {
                             title = 3
+                            print(title)
                             isModalSheet = true
                         } label: {
                             Text("\(trackingMode)")
-                                .foregroundColor(.gray)
-                                .frame(width: screen.width * 0.33, height: screen.height * 0.07, alignment: .trailing)
-                        }
+                                .textStyle()
+                        }.tag(title)
                     }
-                    .padding()
-                    .frame(width: screen.width * 0.9, height: screen.height * 0.075)
-                    .background(Color("PopUpViewColor"))
-                    .cornerRadius(13)
+                    .cardStyle()
                     HStack {
-                        Text("音声案内")
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "questionmark.circle")
-                                .foregroundColor(.gray)
-                                .font(.title2)
-                        }
-                        Spacer()
-                        Button {
-                            isSpeechGuide.toggle()
-                            UserDefaults.standard.set(isSpeechGuide, forKey: "isSpeechGuide")
-                        } label: {
-                            Toggle("", isOn: $isSpeechGuide)
-                                .toggleStyle(SwitchToggleStyle(tint: Color.gray))
-                        }
-                        .onChange(of: isSpeechGuide) { newValue in
-                            if isSpeechGuide {
-                                locationManager.changeSpeechGuide(announce: true)
-                            } else {
-                                locationManager.changeSpeechGuide(announce: false)
+                        SetupItem(text: "音声案内")
+                        Toggle("", isOn: $isSpeechGuide)
+                            .toggleStyle(SwitchToggleStyle(tint: Color(red: 0.227, green: 0.235, blue: 0.278)))
+                            .onChange(of: isSpeechGuide) { _ in
+                                UserDefaults.standard.set(isSpeechGuide, forKey: "isSpeechGuide")
+                                if isSpeechGuide {
+                                    locationManager.changeSpeechGuide(announce: true)
+                                } else {
+                                    locationManager.changeSpeechGuide(announce: false)
                             }
                         }
                     }
-                    .padding()
-                    .frame(width: screen.width * 0.9, height: screen.height * 0.07)
-                    .background(Color("PopUpViewColor"))
-                    .cornerRadius(13)
+                    .cardStyle()
                 }
                 .padding(.top)
             }
             .frame(width: screen.width * 0.9, height: screen.height * 0.75, alignment: .top)
         }
         .onAppear {
-            let geoDistance = UserDefaults.standard.string(forKey: "geoDistance") ?? "0"
+            let geoDistance = UserDefaults.standard.string(forKey: "geoDistance") ?? "100"
             let notificationCount = UserDefaults.standard.integer(forKey: "notificationCount")
             let notificationTime = UserDefaults.standard.integer(forKey: "notificationTime")
-            let trackingMode = UserDefaults.standard.string(forKey: "trackingMode") ?? "Default"
+            let trackingMode = UserDefaults.standard.string(forKey: "trackingMode") ?? "位置情報追跡"
             let isSpeechGuide = UserDefaults.standard.bool(forKey: "isSpeechGuide")
             self.geoDistance = geoDistance
             self.notificationCount = notificationCount
@@ -231,26 +162,13 @@ struct SettingView: View {
         .background(.white)
         .ignoresSafeArea()
         .sheet(isPresented: $isModalSheet) {
-            PickerView(locationManager: locationManager, isModalSheet: $isModalSheet, mapConfiguration: $mapConfiguration, notificationCount: $notificationCount, notificationTime: $notificationTime, trackingMode: $trackingMode, title: $title)
+            PickerView()
                 .presentationDetents([.fraction(0.28)])
         }
     }
-}
-
-struct PickerView: View {
-    @ObservedObject var locationManager: LocationManager
-    @Binding var isModalSheet: Bool
-    @Binding var mapConfiguration: String
-    @Binding var notificationCount: Int
-    @Binding var notificationTime: Int
-    @Binding var trackingMode: String
-    @Binding var title: Int
     
-    let screen = UIScreen.main.bounds
-    let mapType = ["Standard", "Hybrid", "Imagery"]
-    let trackingType = ["バッテリー節約", "位置情報追跡"]
-    
-    var body: some View {
+    @ViewBuilder
+    func PickerView() -> some View {
         HStack {
             Button(action: {
                 isModalSheet = false
@@ -311,6 +229,24 @@ struct PickerView: View {
         default:
             Text("default")
         }
+    }
+}
+
+struct SetupItem: View {
+    var text: String
+    
+    var body:some View {
+        Text(text)
+            .font(.title3)
+            .fontWeight(.bold)
+        Button {
+            
+        } label: {
+            Image(systemName: "questionmark.circle")
+                .foregroundColor(.gray)
+                .font(.title2)
+        }
+        Spacer()
     }
 }
 
