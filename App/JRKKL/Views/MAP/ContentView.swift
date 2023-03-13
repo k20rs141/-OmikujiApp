@@ -3,7 +3,7 @@ import MapKit
 
 struct ContentView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var locationManager = LocationManager()
+    @ObservedObject var locationManager: LocationManager
     @State private var checkInView = false
     @State private var checkInNumber = 0
     @State private var tappedLocation: CLLocationCoordinate2D?
@@ -27,10 +27,7 @@ struct ContentView: View {
                         Image(systemName: "xmark")
                             .font(.title2)
                             .fontWeight(.bold)
-                            .foregroundColor(.gray)
-                            .padding()
-                            .background(.ultraThickMaterial)
-                            .cornerRadius(50)
+                            .buttonStyle(color: .gray, cornerRadius: 50)
                     }
                     Spacer()
                 }
@@ -41,19 +38,13 @@ struct ContentView: View {
                         mapSettingView = true
                     } label: {
                         Image(systemName: "gearshape.fill")
-                            .foregroundColor(.gray)
-                            .padding()
-                            .background(.ultraThickMaterial)
-                            .cornerRadius(8)
+                            .buttonStyle(color: .gray, cornerRadius: 8)
                     }
                     Button {
                         self.showUserLocation.toggle()
                     } label: {
                         Image(systemName: showUserLocation ? "location.fill" : "location")
-                            .foregroundColor(showUserLocation ? .blue : .gray)
-                            .padding()
-                            .background(.ultraThickMaterial)
-                            .cornerRadius(8)
+                            .buttonStyle(color: showUserLocation ? .blue : .gray, cornerRadius: 8)
                     }
                     Spacer()
                 }
@@ -106,6 +97,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(locationManager: LocationManager())
     }
 }

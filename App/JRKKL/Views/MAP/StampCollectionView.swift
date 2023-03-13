@@ -13,7 +13,7 @@ struct StampCollectionView: View {
                     VStack {
                         
                     }
-                    .frame(width: screen.width, height: screen.height * 0.25)
+                    .frame(width: screen.width, height: screen.height * 0.3)
                     .background(.blue)
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(locationManager.customPin) { symbol in
@@ -35,6 +35,7 @@ struct StampCollectionView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("PopUpViewColor"))
         }
+        .ignoresSafeArea()
         .background(Color("PopUpViewColor"))
     }
 }
