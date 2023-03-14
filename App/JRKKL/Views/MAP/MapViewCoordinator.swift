@@ -21,6 +21,7 @@ extension MapViewCoordinator: MKMapViewDelegate {
                 if view.annotation?.title?!.applyingTransform(.fullwidthToHalfwidth, reverse: false) == parent.locationManager.customPin[i].title.applyingTransform(.fullwidthToHalfwidth, reverse: false) {
                     markerAnnotationView.markerTintColor = parent.locationManager.customPin[i].checked ? .red : UIColor(named: "Jrq2ndColor")
                     markerAnnotationView.glyphImage = UIImage(systemName: "checkmark.circle.fill")
+                    markerAnnotationView.glyphTintColor = UIColor(.white)
                     markerAnnotationView.animatesWhenAdded = true
                     markerAnnotationView.canShowCallout = true
                 }
