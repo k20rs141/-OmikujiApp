@@ -18,16 +18,17 @@ struct StampCollectionView: View {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(locationManager.customPin) { symbol in
                             VStack {
-                                Image(symbol.image)
+                                Image(symbol.checked ? symbol.image : "JRKyusyuApp")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 105, height: 105)
                                     .clipShape(Circle())
+                                    .opacity(symbol.checked ? 1 : 0.4)
                                 Text(symbol.title)
                                     .font(.callout)
                                     .fontWeight(.bold)
                             }
-                            .frame(width: screen.width * 0.3, height: screen.height * 0.16)
+                            .frame(width: screen.width * 0.3, height: screen.height * 0.165)
                         }
                     }
                 }
