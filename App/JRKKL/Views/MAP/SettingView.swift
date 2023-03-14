@@ -9,8 +9,8 @@ struct SettingView: View {
     // マップの種類
     @Binding var mapConfiguration: String
     // 通知を知らせる範囲
-    @State private var geoDistance = "100"
-    @State private var bufText = ""
+    @State private var geoDistance = 100
+    @State private var inputNumber = 100
     // 通知回数
     @State private var notificationCount = 1
     // 通知間隔
@@ -22,7 +22,7 @@ struct SettingView: View {
     @State private var title = 0
     
     let screen = UIScreen.main.bounds
-    let numberLimit = 5
+    let numberLimit = 9999
     let mapType = ["Standard", "Hybrid", "Imagery"]
     let trackingType = ["バッテリー節約", "位置情報追跡"]
     
@@ -70,18 +70,18 @@ struct SettingView: View {
                                 .textStyle()
                         }
                         .alert("通知範囲", isPresented: $presentAlert, actions: {
-                            TextField("100", text: $bufText)
+                            TextField("100", value: $inputNumber, format: .number)
                                 .keyboardType(.numberPad)
+                                .foregroundColor(.primary)
                             Button("OK", action: {
-                                //最大文字数を５桁までに制限
-                                if bufText.count > numberLimit {
-                                    bufText = String(bufText.prefix(numberLimit))
+                                //最大範囲を9999mに制限
+                                if inputNumber > numberLimit {
+                                    inputNumber = numberLimit
                                 }
-                                UserDefaults.standard.set(bufText, forKey: "geoDistance")
-                                geoDistance = bufText
-                                self.bufText = ""
+                                UserDefaults.standard.set(inputNumber, forKey: "geoDistance")
+                                geoDistance = inputNumber
                                 print("\(geoDistance)m")
-                                locationManager.changeGeoDistance(radius: Int(geoDistance) ?? 0)
+                                locationManager.changeGeoDistance(radius: geoDistance)
                             })
                             Button("Cancel", role: .cancel, action: {
                             })
@@ -146,7 +146,7 @@ struct SettingView: View {
             .frame(width: screen.width * 0.9, height: screen.height * 0.75, alignment: .top)
         }
         .onAppear {
-            let geoDistance = UserDefaults.standard.string(forKey: "geoDistance") ?? "100"
+            let geoDistance = UserDefaults.standard.integer(forKey: "geoDistance")
             let notificationCount = UserDefaults.standard.integer(forKey: "notificationCount")
             let notificationTime = UserDefaults.standard.integer(forKey: "notificationTime")
             let trackingMode = UserDefaults.standard.string(forKey: "trackingMode") ?? "位置情報追跡"
