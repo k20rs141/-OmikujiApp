@@ -57,9 +57,6 @@ struct MapView: UIViewRepresentable {
             if let userLocation = locationManager.userLocation {
                 let mapRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
                 uiView.setRegion(mapRegion, animated: true)
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//                    self.showUserLocation = false
-//                }
             }
         }
         // マップの切り替え

@@ -26,7 +26,6 @@ extension MapViewCoordinator: MKMapViewDelegate {
                     markerAnnotationView.canShowCallout = true
                 }
             }
-            
             markerAnnotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         return view
@@ -42,8 +41,6 @@ extension MapViewCoordinator: MKMapViewDelegate {
                     parent.checkInNumber = i
                     // 逆ジオコーディング
                     parent.locationManager.reverseGeocoding(checkInNumber: i)
-                    print("KashiiLine annotation accessory view")
-                    print(i)
                 }
             }
         }
@@ -65,8 +62,7 @@ extension MapViewCoordinator: MKMapViewDelegate {
         
         let touchLocation = sender.location(in: sender.view)
         let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: sender.view)
-        let impactHeavy = UIImpactFeedbackGenerator(style: .medium)
-        impactHeavy.impactOccurred()
         parent.tappedLocation = locationCoordinate
+        Haptics.mediumRoll()
     }
 }
