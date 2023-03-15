@@ -68,7 +68,7 @@ struct ContentView: View {
                     .cornerRadius(5)
                     .padding(.bottom)
                     .padding(.leading)
-                    .offset(x: screen.width * -0.25, y: screen.height * 0.30)
+                    .offset(x: screen.width * -0.23, y: screen.height * 0.37)
             }
             // CheckInViewが選択された時に背景をグレーにするためのView
             VStack {
