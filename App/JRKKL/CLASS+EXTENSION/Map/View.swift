@@ -4,7 +4,7 @@ extension View {
     func cardStyle() -> some View {
         self
             .padding()
-            .frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.07)
+            .frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.08)
             .background(Color(red: 0.97, green: 0.97, blue: 0.97))
             .cornerRadius(13)
     }
