@@ -16,7 +16,7 @@
 		664A9CB1299E617900791AFB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A9CB0299E617900791AFB /* Date.swift */; };
 		664A9CB3299F487500791AFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A9CB2299F487500791AFB /* ContentView.swift */; };
 		66509CD229A5F0430023ABA1 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 66509CD129A5F0430023ABA1 /* ConfettiSwiftUI */; };
-		667C822729A90492005AFAB6 /* ForegroundNotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C822629A90492005AFAB6 /* ForegroundNotificationDelegate.swift */; };
+		667C822729A90492005AFAB6 /* NotificationModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C822629A90492005AFAB6 /* NotificationModel+Extension.swift */; };
 		667C822929A905FB005AFAB6 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C822829A905FB005AFAB6 /* NotificationModel.swift */; };
 		667C823129B24122005AFAB6 /* StampCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C823029B24122005AFAB6 /* StampCollectionView.swift */; };
 		667C823529B63654005AFAB6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C823429B63654005AFAB6 /* SettingView.swift */; };
@@ -87,7 +87,7 @@
 		6628F56B29A3BB86009780D0 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		664A9CB0299E617900791AFB /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		664A9CB2299F487500791AFB /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		667C822629A90492005AFAB6 /* ForegroundNotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForegroundNotificationDelegate.swift; sourceTree = "<group>"; };
+		667C822629A90492005AFAB6 /* NotificationModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationModel+Extension.swift"; sourceTree = "<group>"; };
 		667C822829A905FB005AFAB6 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		667C823029B24122005AFAB6 /* StampCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampCollectionView.swift; sourceTree = "<group>"; };
 		667C823429B63654005AFAB6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 				66B8C173299BC3BF002136ED /* PinData.swift */,
 				66B8C174299BC3BF002136ED /* LocationManager.swift */,
 				667C823629B6D8EF005AFAB6 /* Haptics.swift */,
-				667C822629A90492005AFAB6 /* ForegroundNotificationDelegate.swift */,
+				667C822629A90492005AFAB6 /* NotificationModel+Extension.swift */,
 				667C822829A905FB005AFAB6 /* NotificationModel.swift */,
 				66A19CC429BF078D0012FFBF /* View.swift */,
 			);
@@ -450,7 +450,7 @@
 				66A19CC529BF078D0012FFBF /* View.swift in Sources */,
 				66BE54FB294A278600287B17 /* MenuViewController.swift in Sources */,
 				66B8C177299BC3BF002136ED /* MapView.swift in Sources */,
-				667C822729A90492005AFAB6 /* ForegroundNotificationDelegate.swift in Sources */,
+				667C822729A90492005AFAB6 /* NotificationModel+Extension.swift in Sources */,
 				664A9CB1299E617900791AFB /* Date.swift in Sources */,
 				F2D3FBAE2869890E00A1439F /* VisionViewController.swift in Sources */,
 				66B8C176299BC3BF002136ED /* LookAroundView.swift in Sources */,
