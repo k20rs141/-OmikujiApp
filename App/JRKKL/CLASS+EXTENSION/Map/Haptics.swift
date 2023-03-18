@@ -2,26 +2,20 @@ import SwiftUI
 
 public class Haptics {
     static private let shared = Haptics()
-    
-    private let softHammer = UIImpactFeedbackGenerator(style: .soft)
-    private let mediumHammer = UIImpactFeedbackGenerator(style: .medium)
-    private let hardHammer = UIImpactFeedbackGenerator(style: .heavy)
+    // UISelectionFeedbackGeneratorはUIの値が変化した時に使用
+    private let selection = UISelectionFeedbackGenerator()
+    private let light = UIImpactFeedbackGenerator(style: .light)
     
     private init() {
-        softHammer.prepare()
-        mediumHammer.prepare()
-        hardHammer.prepare()
+        selection.prepare()
+        light.prepare()
     }
     
-    public static func softRoll() {
-        shared.softHammer.impactOccurred(intensity: 0.8)
+    public static func selection() {
+        shared.selection.selectionChanged()
     }
     
-    public static func mediumRoll() {
-        shared.mediumHammer.impactOccurred(intensity: 0.8)
-    }
-    
-    public static func hit() {
-        shared.hardHammer.impactOccurred(intensity: 0.9)
+    public static func lightImpact() {
+        shared.light.impactOccurred()
     }
 }

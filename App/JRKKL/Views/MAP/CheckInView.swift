@@ -31,7 +31,7 @@ struct CheckInView: View {
                     VStack {
                         Button {
                             notificationButton.toggle()
-                            Haptics.mediumRoll()
+                            Haptics.lightImpact()
                         } label: {
                             Text("通知ON")
                                 .foregroundColor(notificationButton ? .white : Color("JRKyusyuColor"))
