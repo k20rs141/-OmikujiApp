@@ -2,17 +2,16 @@ import UserNotifications
 import MapKit
 import AVFoundation
 
-class NotificationModel: ObservableObject {
+class NotificationModel: NSObject, ObservableObject {
     let synthesizer = AVSpeechSynthesizer()
-    var notificationDelegate = ForegroundNotificationDelegate()
     let title = "JR九州香椎線"
     let body = "まもなく到着します"
+    @Published var removeNotificationRequests = false
 
-    init() {
+    override init() {
+        super.init()
         // フォアグラウンド通知用
-        UNUserNotificationCenter.current().delegate = self.notificationDelegate
-        // フォアグラウンド時に配信した全ての通知を削除
-        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        UNUserNotificationCenter.current().delegate = self
     }
 
     func setNotification(notify: Bool) {
@@ -53,7 +52,7 @@ class NotificationModel: ObservableObject {
     }
     
     func stopSpeechSynthesizer() {
-        synthesizer.stopSpeaking(at: .immediate)
+        synthesizer.stopSpeaking(at: .word)
     }
     // 日本語ボイスの生成
     func makeVoice(_ identifier: String) -> AVSpeechSynthesisVoice! {
