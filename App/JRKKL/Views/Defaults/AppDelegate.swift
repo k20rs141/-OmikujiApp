@@ -124,31 +124,6 @@ extension AppDelegate {
         var request = URLRequest(url: URL(string: "http://mwu.apps.kyusan-u.ac.jp:8086/jrkkl/deviceToken.php")!)
         request.httpMethod = "POST"
         request.httpBody = postString.data(using: .utf8)
-
-//        URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-//            guard let data = data, error == nil, response != nil else { return }
-//
-//            do{
-//                self.contents = try JSONDecoder().decode([Content].self, from: data)
-//
-//                // User IDの設定
-//                if ( self.contents.count > 0 ) { self.userId = self.contents[0].userId }
-//                else { self.userId = "0" }
-//                guard let userId = self.userId else { return }
-//                UserDefaults.standard.set(Int(userId), forKey:"userId")
-//
-//                // Nick Nameの設定
-//                if ( self.contents.count > 0 ) {
-//                    let user: String? = self.contents[0].user
-//                    guard let nickname: String = user else { return }
-//                    UserDefaults.standard.set(nickname, forKey:"nickname")
-//                }
-//
-//            } catch {
-//                print("Error: didRegisterForRemoteNotificationsWithDeviceToken")
-//            }
-//        })
-//        .resume()
     }
 
     // MARK: failed to register to APNs
