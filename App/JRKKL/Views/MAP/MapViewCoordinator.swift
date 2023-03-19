@@ -63,6 +63,6 @@ extension MapViewCoordinator: MKMapViewDelegate {
         let touchLocation = sender.location(in: sender.view)
         let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: sender.view)
         parent.tappedLocation = locationCoordinate
-        Haptics.mediumRoll()
+        Haptics.lightImpact()
     }
 }
