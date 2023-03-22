@@ -204,14 +204,14 @@
 			children = (
 				66B8C175299BC3BF002136ED /* MapLocationData.json */,
 				66A19CC829C703F60012FFBF /* InformationData.json */,
-				66B8C16C299BC3BF002136ED /* LookAroundView.swift */,
 				664A9CB2299F487500791AFB /* ContentView.swift */,
-				667C823429B63654005AFAB6 /* SettingView.swift */,
-				66A19CD229C8AB0A0012FFBF /* ExplanationView.swift */,
 				66B8C16D299BC3BF002136ED /* MapView.swift */,
 				66B8C16E299BC3BF002136ED /* MapViewCoordinator.swift */,
 				66B8C170299BC3BF002136ED /* CheckInView.swift */,
 				6628F56B29A3BB86009780D0 /* AnimationView.swift */,
+				66B8C16C299BC3BF002136ED /* LookAroundView.swift */,
+				667C823429B63654005AFAB6 /* SettingView.swift */,
+				66A19CD229C8AB0A0012FFBF /* ExplanationView.swift */,
 				667C823029B24122005AFAB6 /* StampCollectionView.swift */,
 			);
 			path = MAP;
@@ -220,12 +220,12 @@
 		66B8C16A299BC33E002136ED /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				66B8C174299BC3BF002136ED /* LocationManager.swift */,
+				667C822829A905FB005AFAB6 /* NotificationModel.swift */,
+				667C822629A90492005AFAB6 /* NotificationModel+Extension.swift */,
 				66B8C173299BC3BF002136ED /* PinData.swift */,
 				66A19CD029C89FFC0012FFBF /* InformationData.swift */,
-				66B8C174299BC3BF002136ED /* LocationManager.swift */,
 				667C823629B6D8EF005AFAB6 /* Haptics.swift */,
-				667C822629A90492005AFAB6 /* NotificationModel+Extension.swift */,
-				667C822829A905FB005AFAB6 /* NotificationModel.swift */,
 				66A19CC429BF078D0012FFBF /* View.swift */,
 			);
 			path = Map;

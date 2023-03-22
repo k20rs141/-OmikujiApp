@@ -18,11 +18,10 @@ struct MapView: UIViewRepresentable {
         mapView.selectableMapFeatures = [.pointsOfInterest]
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
-        mapView.userTrackingMode = .followWithHeading
-        
+        mapView.userTrackingMode = .follow
+        // マップの種類と交通表示
         mapType.showsTraffic = true
         mapView.preferredConfiguration = mapType
-        
         // コンパスの表示
         let compass = MKCompassButton(mapView: mapView)
         compass.compassVisibility = .adaptive
@@ -45,8 +44,8 @@ struct MapView: UIViewRepresentable {
         let longTapGesture = UILongPressGestureRecognizer(target: context.coordinator, action: #selector(MapViewCoordinator.tappedOnMap(_:)))
         mapView.addGestureRecognizer(longTapGesture)
         
-        // 香椎駅の座標
-        let mapRegion = MKCoordinateRegion(center: locationManager.customPin[1].coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+        // 最初はマップの中心を香椎駅に設定
+        let mapRegion = MKCoordinateRegion(center: locationManager.customPin[0].coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
         mapView.setRegion(mapRegion, animated: true)
         
         return mapView
@@ -55,7 +54,7 @@ struct MapView: UIViewRepresentable {
     public func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
         if showUserLocation {
             if let userLocation = locationManager.userLocation {
-                let mapRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+                let mapRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters:500, longitudinalMeters: 500)
                 uiView.setRegion(mapRegion, animated: true)
             }
         }

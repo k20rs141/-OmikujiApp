@@ -92,8 +92,7 @@ struct CheckInView: View {
             }
         }
         .alert("チェックイン範囲外です。範囲内に移動してください!", isPresented: $locationManager.checkInAlert) {
-            Button("OK") {
-                
+            Button("OK") { 
             }
         }
         .sheet(isPresented: $locationManager.isAnimation) {

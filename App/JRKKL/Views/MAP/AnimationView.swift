@@ -43,7 +43,6 @@ struct AnimationView: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-//            .background(.black.opacity(wish && !finishWish ? 0.4 : 0))
             VStack {
                 ConfettiCannon(counter: $confettiCounter, num: 100, openingAngle: Angle(degrees: 65), closingAngle: Angle(degrees: 90), radius: 800.0)
             }
