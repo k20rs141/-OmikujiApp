@@ -42,6 +42,7 @@ struct ContentView: View {
                     }
                     Button {
                         self.showUserLocation.toggle()
+                        Haptics.lightImpact()
                     } label: {
                         Image(systemName: showUserLocation ? "location.fill" : "location")
                             .buttonStyle(color: showUserLocation ? .blue : .gray, cornerRadius: 8)
