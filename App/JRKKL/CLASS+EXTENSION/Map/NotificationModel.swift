@@ -3,10 +3,13 @@ import MapKit
 import AVFoundation
 
 class NotificationModel: NSObject, ObservableObject {
-    let synthesizer = AVSpeechSynthesizer()
-    let title = "JR九州香椎線"
-    let body = "まもなく到着します"
     @Published var removeNotificationRequests = false
+    
+    enum Constant {
+        static let title = "JR九州香椎線"
+        static let body = "まもなく到着します"
+    }
+    let synthesizer = AVSpeechSynthesizer()
 
     override init() {
         super.init()
@@ -31,8 +34,8 @@ class NotificationModel: NSObject, ObservableObject {
     func makeNotification() {
         // 通知内容
         let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = body
+        content.title = Constant.title
+        content.body = Constant.body
         content.sound = UNNotificationSound.default
         // リクエスト作成
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
@@ -45,12 +48,12 @@ class NotificationModel: NSObject, ObservableObject {
     }
     
     func speechSynthesizer() {
-        let utterance = AVSpeechUtterance(string: body)
+        let utterance = AVSpeechUtterance(string: Constant.body)
         utterance.voice = makeVoice("com.apple.voice.enhanced.ja-JP.Kyoko")
         utterance.rate = 0.5
         synthesizer.speak(utterance)
     }
-    
+    // 単語ごとの区切りで音声を停止
     func stopSpeechSynthesizer() {
         synthesizer.stopSpeaking(at: .word)
     }

@@ -17,9 +17,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var isSpeechGuide = false
     @Published var moniteringRegions: [CLRegion]?
     
+    static let shared = LocationManager()
     let locationManager = CLLocationManager()
     var moniteringRegion = CLCircularRegion()
-    static let shared = LocationManager()
     
     override init() {
         super.init()
@@ -68,11 +68,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 print("TimerStop")
             }
         }
-    }
-
-    // ジオフェンス領域離脱時
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-
     }
 
     // ジオフェンスの情報が取得できない時

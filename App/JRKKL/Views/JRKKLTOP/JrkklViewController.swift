@@ -3,7 +3,7 @@ import UIKit
 import SwiftUI
 
 class JrkklViewController: UIViewController {
-    let locationManager = LocationManager()
+    let locationManager = LocationManager.shared
     
     @IBOutlet var hambergerButton: UIButton! {
         didSet {
