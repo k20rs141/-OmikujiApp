@@ -1,13 +1,14 @@
 import SwiftUI
 
 struct StampCollectionView: View {
-    @ObservedObject var locationManager = LocationManager()
+    @Environment(\.dismiss) private var dismiss
+    @ObservedObject var locationManager: LocationManager
     
     let screen = UIScreen.main.bounds
     let columns: [GridItem] = Array(repeating: .init(.flexible(minimum: 60)), count: 3)
     
     var body: some View {
-        VStack {
+        ZStack {
             VStack {
                 ScrollView {
                     VStack {
@@ -33,11 +34,26 @@ struct StampCollectionView: View {
                     }
                 }
             }
+            .ignoresSafeArea()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("PopUpViewColor"))
+            HStack {
+                VStack {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .buttonStyle(color: .gray, cornerRadius: 50)
+                    }
+                    Spacer()
+                }
+                .padding(.leading)
+                Spacer()
+            }
+            .padding(.top)
         }
-        .ignoresSafeArea()
-        .background(Color("PopUpViewColor"))
     }
 }
 

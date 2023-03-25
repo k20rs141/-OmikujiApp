@@ -64,8 +64,9 @@ class JrkklViewController: UIViewController {
         case 13: openUrl("https://line.me/R/ti/p/%40573zaqtk#~")
         case 14: openUrl("https://www.tiktok.com/tag/%E9%A6%99%E6%A4%8E%E7%B7%9A?lang=ja-JP")
 //        case 13: openUrl("https://www.jrkyushu.co.jp/contact/")
-        case 15: openUIHostringController()
-        case 16: openUrl(UIApplication.openSettingsURLString)
+        case 15: openUIHostringController(selectionView: "Map")
+        case 16: openUIHostringController(selectionView: "StampCollection")
+        case 17: openUrl(UIApplication.openSettingsURLString)
         default: break
         }
     }
@@ -80,12 +81,20 @@ class JrkklViewController: UIViewController {
         present(nextViewController, animated: true, completion: nil)
     }
     
-    private func openUIHostringController() {
-        // MAPへ遷移
-        let view = UIHostingController(rootView: ContentView(locationManager: locationManager))
-//        self.navigationController?.pushViewController(view, animated: true)
-        view.modalPresentationStyle = .fullScreen
-        present(view, animated: true, completion: nil)
+    private func openUIHostringController(selectionView: String) {
+        switch selectionView {
+        case "Map":
+            // MAPへ遷移
+            let view = UIHostingController(rootView: ContentView(locationManager: locationManager))
+            view.modalPresentationStyle = .fullScreen
+            present(view, animated: true, completion: nil)
+        case "StampCollection":
+            // スタンプコレクションへ遷移
+            let view = UIHostingController(rootView: StampCollectionView(locationManager: locationManager))
+            view.modalPresentationStyle = .fullScreen
+            present(view, animated: true, completion: nil)
+        default: break
+        }
     }
 
     private func openApp(urlScheme: String, urlString: String) {
