@@ -71,8 +71,7 @@ struct MapView: UIViewRepresentable {
         case "Imagery":
             let mapType = MKImageryMapConfiguration(elevationStyle: .realistic)
             uiView.preferredConfiguration = mapType
-        default:
-            break
+        default: break
         }
     }
     

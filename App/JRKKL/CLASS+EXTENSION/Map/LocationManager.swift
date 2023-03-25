@@ -90,8 +90,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         // ユーザーが位置情報を許可している場合
         case .authorizedAlways, .authorizedWhenInUse:
             manager.requestLocation()
-        default:
-            break
+        default: break
         }
     }
     
