@@ -57,8 +57,6 @@ struct StampCollectionView: View {
     }
 }
 
-struct StampCollectionView_Previews: PreviewProvider {
-    static var previews: some View {
-        StampCollectionView(locationManager: LocationManager())
-    }
+#Preview {
+    StampCollectionView(locationManager: LocationManager())
 }

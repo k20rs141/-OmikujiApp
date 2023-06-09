@@ -60,8 +60,6 @@ struct AnimationView: View {
     }
 }
 
-struct AnimationView_Previews: PreviewProvider {
-    static var previews: some View {
-        AnimationView(locationManager: LocationManager(), checkInNumber: .constant(1))
-    }
+#Preview {
+    AnimationView(locationManager: LocationManager(), checkInNumber: .constant(1))
 }

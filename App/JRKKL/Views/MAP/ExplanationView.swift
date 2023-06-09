@@ -38,8 +38,6 @@ struct ExplanationView: View {
     }
 }
 
-struct ExplanationView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExplanationView(locationManager: LocationManager(), explanationView: .constant(true), title: .constant(0))
-    }
+#Preview {
+    ExplanationView(locationManager: LocationManager(), explanationView: .constant(true), title: .constant(0))
 }

@@ -294,8 +294,7 @@ struct SetupItem: View {
     }
 }
 
-struct SettingView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingView(locationManager: LocationManager(), mapConfiguration: .constant("Standard"))
-    }
+
+#Preview {
+    SettingView(locationManager: LocationManager(), mapConfiguration: .constant("Standard"))
 }

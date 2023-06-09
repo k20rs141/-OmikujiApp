@@ -45,8 +45,6 @@ struct LookAroundView: UIViewControllerRepresentable {
     }
 }
 
-struct LookAroundView_Preview: PreviewProvider {
-    static var previews: some View {
-        LookAroundView(tappedlocation: .constant(CLLocationCoordinate2D(latitude: 37.33062, longitude: -122.01442)), showLookAroundView: .constant(true))
-    }
+#Preview {
+    LookAroundView(tappedlocation: .constant(CLLocationCoordinate2D(latitude: 37.33062, longitude: -122.01442)), showLookAroundView: .constant(true))
 }

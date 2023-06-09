@@ -101,9 +101,6 @@ struct CheckInView: View {
     }
 }
 
-struct CheckInView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        CheckInView(locationManager: LocationManager(), checkInView: .constant(false), checkInNumber: .constant(0))
-    }
+#Preview {
+    CheckInView(locationManager: LocationManager(), checkInView: .constant(false), checkInNumber: .constant(0))
 }
