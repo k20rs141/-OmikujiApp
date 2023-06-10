@@ -1,21 +1,22 @@
 import MapKit
+import Observation
 
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    @Published var notificationModel = NotificationModel()
-    @Published var userLocation: CLLocation?
-    @Published var customPin = [PinData]()
-    @Published var information = [InformationData]()
-    @Published var checkInNumber = 0
-    @Published var checkInAlert = false
-    @Published var isAnimation = false
-    @Published var isDenied = false
-    @Published var geoDistance = 100
-    @Published var address = ""
-    @Published var notificationCount = 1
-    @Published var notificationTime = 2
-    @Published var trackingModes: String?
-    @Published var isSpeechGuide = false
-    @Published var moniteringRegions: [CLRegion]?
+@Observable class LocationManager: NSObject, CLLocationManagerDelegate {
+    var notificationModel = NotificationModel()
+    var userLocation: CLLocation? = nil
+    var customPin = [PinData]()
+    var information = [InformationData]()
+    var checkInNumber = 0
+    var checkInAlert = false
+    var isAnimation = false
+    var isDenied = false
+    var geoDistance = 100
+    var address = ""
+    var notificationCount = 1
+    var notificationTime = 2
+    var trackingModes: String? = ""
+    var isSpeechGuide = false
+    var moniteringRegions: [CLRegion]? = nil
     
     static let shared = LocationManager()
     let locationManager = CLLocationManager()

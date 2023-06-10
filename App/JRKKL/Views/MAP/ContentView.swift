@@ -3,7 +3,7 @@ import MapKit
 
 struct ContentView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var locationManager: LocationManager
+    @Bindable var locationManager: LocationManager
     @State private var checkInView = false
     @State private var checkInNumber = 0
     @State private var tappedLocation: CLLocationCoordinate2D?

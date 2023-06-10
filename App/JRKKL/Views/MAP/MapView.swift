@@ -2,7 +2,7 @@ import SwiftUI
 import MapKit
 
 struct MapView: UIViewRepresentable {
-    @ObservedObject var locationManager: LocationManager
+    var locationManager: LocationManager
     @Binding var checkInView: Bool
     @Binding var checkInNumber: Int
     @Binding var tappedLocation: CLLocationCoordinate2D?

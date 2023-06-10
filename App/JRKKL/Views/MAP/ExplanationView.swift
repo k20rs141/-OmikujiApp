@@ -1,7 +1,7 @@
 import SwiftUI
 // マップの各設定を解説した画面
 struct ExplanationView: View {
-    @ObservedObject var locationManager: LocationManager
+    var locationManager: LocationManager
     @Binding var explanationView: Bool
     @Binding var title: Int
 

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct StampCollectionView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var locationManager: LocationManager
+    var locationManager: LocationManager
     
     let screen = UIScreen.main.bounds
     let columns: [GridItem] = Array(repeating: .init(.flexible(minimum: 60)), count: 3)

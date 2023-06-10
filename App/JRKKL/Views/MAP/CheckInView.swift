@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CheckInView: View {
-    @ObservedObject var locationManager: LocationManager
+    @Bindable var locationManager: LocationManager
     @State private var notificationButton = false
     @Binding var checkInView: Bool
     @Binding var checkInNumber: Int
@@ -47,7 +47,7 @@ struct CheckInView: View {
                                 .padding(.trailing)
                                 .padding(.top)
                         }
-                        .onChange(of: notificationButton) { _ in
+                        .onChange(of: notificationButton) {
                             if notificationButton {
                                 locationManager.moniteringStart(moniteringNumber: checkInNumber)
                                 locationManager.requestState(moniteringNumber: checkInNumber)
@@ -85,7 +85,7 @@ struct CheckInView: View {
         .background(Color("PopUpViewColor"))
         .cornerRadius(15)
         .padding(.horizontal)
-        .onChange(of: checkInView) { _ in
+        .onChange(of: checkInView) {
             if checkInView {
                 let notificationButton = UserDefaults.standard.bool(forKey: "notificationButton\(checkInNumber)")
                 self.notificationButton = notificationButton

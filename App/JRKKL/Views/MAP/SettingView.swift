@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SettingView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var locationManager: LocationManager
+    var locationManager: LocationManager
     @State private var presentAlert = false
     @State private var isModalSheet = false
     // マップの種類
@@ -144,7 +144,7 @@ struct SettingView: View {
                                     SetupItem(explanationView: $explanationView, title: $title, id: item.id, text: "音声案内")
                                     Toggle("", isOn: $isSpeechGuide)
                                         .toggleStyle(SwitchToggleStyle(tint: Color(red: 0.227, green: 0.235, blue: 0.278)))
-                                        .onChange(of: isSpeechGuide) { _ in
+                                        .onChange(of: isSpeechGuide) {
                                             UserDefaults.standard.set(isSpeechGuide, forKey: "isSpeechGuide")
                                             if isSpeechGuide {
                                                 locationManager.isSpeechGuide = true

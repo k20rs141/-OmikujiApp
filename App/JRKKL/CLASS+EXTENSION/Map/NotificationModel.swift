@@ -1,9 +1,10 @@
-import UserNotifications
-import MapKit
 import AVFoundation
+import MapKit
+import Observation
+import UserNotifications
 
-class NotificationModel: NSObject, ObservableObject {
-    @Published var removeNotificationRequests = false
+@Observable class NotificationModel: NSObject {
+    var removeNotificationRequests = false
     
     enum Constant {
         static let title = "JR九州香椎線"

@@ -3,7 +3,7 @@ import ConfettiSwiftUI
 
 struct AnimationView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var locationManager: LocationManager
+    var locationManager: LocationManager
     @State private var confettiCounter = 0
     @Binding var checkInNumber: Int
     
