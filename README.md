@@ -18,9 +18,9 @@
 
 ## 開発環境
 
-- Xcode Version 14.2 or later
+- Xcode Version 14.3 or later
 - iOS 16.0 or later 
-- Swift 5.7
+- Swift 5.9
 - SwiftUI 4.0
 
 
